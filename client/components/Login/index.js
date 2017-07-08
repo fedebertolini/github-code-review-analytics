@@ -1,15 +1,22 @@
 import React from 'react';
-
-const clientId = process.env.REACT_APP_GITHUB_CLIENT_ID;
-const redirect = window.location.origin + '/login/callback';
-const loginUrl = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${redirect}`;
+import { Grid, Card, Image, Button } from 'semantic-ui-react';
+import { getLoginUrl } from '../../services/auth';
+import octocatImage from '../../images/Octocat.png';
+import './styles.css';
 
 const Login = () => (
-    <div>
-        <a href={loginUrl}>
-            Login!
-        </a>
-    </div>
+    <Grid padded centered stretched className="login_grid">
+        <Card>
+            <Image src={octocatImage} />
+            <Card.Content>
+                <a href={getLoginUrl()}>
+                    <Button fluid basic color="blue">
+                        Login with GitHub
+                    </Button>
+                </a>
+            </Card.Content>
+        </Card>
+    </Grid>
 );
 
 export default Login;

@@ -17,7 +17,7 @@
     "cookie-parser": "~1.4.3",
     "css-loader": "0.28.4",
     "debug": "~2.6.3",
-    "dotenv": "4.0.0",
+    "dotenv": "^4.0.0",
     "eslint": "3.19.0",
     "eslint-config-react-app": "^1.0.5",
     "eslint-loader": "1.7.1",
@@ -32,6 +32,7 @@
     "html-webpack-plugin": "2.29.0",
     "jade": "~1.11.0",
     "jest": "20.0.4",
+    "js-cookie": "^2.1.4",
     "morgan": "~1.8.1",
     "normalize.css": "^7.0.0",
     "object-assign": "4.1.1",
@@ -52,18 +53,27 @@
     "whatwg-fetch": "2.0.3"
   },
   "devDependencies": {
-    "concurrently": "^3.5.0"
+    "concurrently": "^3.5.0",
+    "nodemon": "^1.11.0"
   },
   "scripts": {
     "server": "node server/bin/www",
+    "server-dev": "nodemon server/bin/www",
     "client": "node scripts/start.js",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "dev": "concurrently \"npm run server-dev\" \"npm run client\"",
     "start": "npm run server",
     "build-client": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "now": "now --public && now alias"
   },
-  "proxy": "http://localhost:3001",
+  "proxy": {
+    "/api": {
+      "target": "http://localhost:3001"
+    },
+    "/login": {
+      "target": "http://localhost:3001"
+    }
+  },
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}"

@@ -1,34 +1,41 @@
 import React, { Component } from 'react';
-import { getUsers } from '../../services/userApi';
-
-import './styles.css';
+import Login from '../Login';
+import { hasAccessToken, invalidateAccessToken } from '../../services/auth';
+import { getLoggedInUser } from '../../services/users';
 
 class App extends Component {
     async componentWillMount() {
         this.state = {
-            users: [],
+            showLogin: !hasAccessToken(),
+            user: null,
         };
 
-        const users = await getUsers();
-        this.setState({
-            users: users
-        });
+        if (hasAccessToken()) {
+            try {
+                const user = await getLoggedInUser();
+                this.setState({ user });
+            } catch(e) {
+                invalidateAccessToken();
+
+                this.setState({
+                    showLogin: true,
+                });
+            }
+        }
     }
 
     render() {
-        return (
-            <div className="App">
-                <div className="App-header">
-                    <h2>Welcome to React-Express Boilerplate</h2>
-                </div>
+        if (this.state.showLogin) {
+            return <Login />;
+        }
+        if (this.state.user) {
+            return (
                 <div>
-                    <h3>Users:</h3>
-                    {this.state.users.map((user) => (
-                        <h5 key={user.id}>{user.id} - {user.username}</h5>
-                    ))}
+                    {this.state.user.name}
                 </div>
-            </div>
-        );
+            );
+        }
+        return null;
     }
 }
 

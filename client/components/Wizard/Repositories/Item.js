@@ -9,7 +9,7 @@ const Item = ({ repository, selected, onSelect }) => (
                     <Checkbox
                         label={repository.name}
                         checked={selected}
-                        onChange={(e, data) => onSelect(repository.id, data.checked)}
+                        onChange={(e, data) => onSelect(repository.name, data.checked)}
                     />
                 </Header>
                 <p>{repository.description}</p>

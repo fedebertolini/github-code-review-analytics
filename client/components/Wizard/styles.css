@@ -1,3 +1,21 @@
+.wizard_header-container {
+    position: sticky !important;
+    top: 0;
+    z-index: 10 !important;
+    padding-top: 0 !important;
+}
+
 .wizard_step-container {
     padding: 20px;
+}
+
+.wizard_repositories_footer {
+    border-radius: .28571429rem;
+    border-top: 1px solid rgba(34,36,38,.15);
+    border-left: 1px solid rgba(34,36,38,.15);
+    border-right: 1px solid rgba(34,36,38,.15);
+    background-color: white;
+    position: sticky !important;
+    bottom: 0;
+    z-index: 10 !important;
 }

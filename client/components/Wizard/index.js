@@ -18,9 +18,11 @@ class Wizard extends Component {
         this.state = {
             currentStep: 0,
             organization: null,
+            repositories: [],
         };
 
         this.selectOrganization = this.selectOrganization.bind(this);
+        this.selectRepositories = this.selectRepositories.bind(this);
     }
 
     selectOrganization(organization) {
@@ -30,11 +32,18 @@ class Wizard extends Component {
         });
     }
 
+    selectRepositories(repositories) {
+        this.setState({
+            currentStep: 2,
+            repositories,
+        });
+    }
+
     render() {
         const userLogin = this.props.user.login;
         return (
             <Grid>
-                <Grid.Row stretched>
+                <Grid.Row stretched className="wizard_header-container">
                     <Grid.Column stretched>
                         <Header currentStep={this.state.currentStep} />
                     </Grid.Column>
@@ -49,6 +58,7 @@ class Wizard extends Component {
                     {this.state.currentStep === 1 && gridWrapper(
                         <Repositories
                             organization={this.state.organization}
+                            selectRepositories={this.selectRepositories}
                         />
                     )}
                 </Container>

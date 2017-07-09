@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
 import throttle from 'lodash/throttle';
-import { Grid, Input, Divider } from 'semantic-ui-react';
+import { Grid, Input } from 'semantic-ui-react';
 import Item from './Item';
+import Footer from './Footer';
 import { getRepositories } from '../../../services/repositories';
 
 class Repositories extends Component {
     componentWillMount() {
         this.search = this.search.bind(this);
         this.onRepositorySelectChange = this.onRepositorySelectChange.bind(this);
+        this.selectRepositories = this.selectRepositories.bind(this);
         this.throttledSearch = throttle(this.search, 1000);
 
         this.state = {
             repositories: [],
-            selectedRepositories: {}
+            selectedRepositories: []
         };
         this.search();
     }
@@ -26,10 +28,21 @@ class Repositories extends Component {
         }
     }
 
-    onRepositorySelectChange(id, value) {
-        const selectedRepositories = Object.assign({}, this.state.selectedRepositories);
-        selectedRepositories[id] = value;
-        this.setState({ selectedRepositories });
+    onRepositorySelectChange(repoName, value) {
+        const selected = this.state.selectedRepositories;
+        if (value) {
+            this.setState({
+                selectedRepositories: selected.concat([repoName]),
+            });
+        } else {
+            this.setState({
+                selectedRepositories: selected.filter(repo => repo !== repoName),
+            });
+        }
+    }
+
+    selectRepositories() {
+        this.props.selectRepositories(this.state.selectedRepositories);
     }
 
     render() {
@@ -45,16 +58,21 @@ class Repositories extends Component {
                         />
                     </Grid.Column>
                 </Grid.Row>
-                <Divider />
 
                 {this.state.repositories.map((repository) => (
                     <Item
                         repository={repository}
-                        selected={this.state.selectedRepositories[repository.id]}
+                        selected={this.state.selectedRepositories.some(repo => repo === repository.name)}
                         onSelect={this.onRepositorySelectChange}
                         key={repository.id}
                     />
                 ))}
+
+                <Footer
+                    selectedRepositories={this.state.selectedRepositories}
+                    onRemove={this.onRepositorySelectChange}
+                    onNextClick={this.selectRepositories}
+                />
             </Grid>
         )
     }

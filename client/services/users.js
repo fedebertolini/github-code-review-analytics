@@ -1,16 +1,5 @@
-import { get } from 'axios';
-import { getAuthorizationHeader } from './auth';
+import { authorizedGet } from './api';
 
-const host = 'https://api.github.com';
+export const getLoggedInUser = () => authorizedGet('/user');
 
-
-
-export const getLoggedInUser = () => {
-    const url = `${host}/user`;
-    return get(url, {
-        headers: {
-            Authorization: getAuthorizationHeader(),
-        },
-    })
-    .then(result => result.data);
-}
+export const getUsersOrganizations = () => authorizedGet(`/user/orgs`);

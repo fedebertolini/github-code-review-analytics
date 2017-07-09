@@ -24,6 +24,7 @@ const Header = ({ currentStep }) => (
     <Step.Group>
         {steps.map((step, index) => (
             <Step
+                key={index}
                 completed={isCompleted(currentStep, index)}
                 active={isActive(currentStep, index)}
                 disabled={isDisabled(currentStep, index)}

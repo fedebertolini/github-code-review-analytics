@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Container, Grid } from 'semantic-ui-react';
 import Header from './Header';
-import Organizations from './steps/Organizations';
-import Repositories from './steps/Repositories';
+import Organizations from './Organizations';
+import Repositories from './Repositories';
 import './styles.css';
 
 const gridWrapper = (step) => (

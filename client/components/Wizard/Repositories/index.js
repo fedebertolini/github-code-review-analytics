@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 import throttle from 'lodash/throttle';
-import { Grid, Input, Segment, Divider, Header, Checkbox } from 'semantic-ui-react';
+import { Grid, Input, Divider } from 'semantic-ui-react';
+import Item from './Item';
 import { getRepositories } from '../../../services/repositories';
 
 class Repositories extends Component {
     componentWillMount() {
         this.search = this.search.bind(this);
+        this.onRepositorySelectChange = this.onRepositorySelectChange.bind(this);
         this.throttledSearch = throttle(this.search, 1000);
 
         this.state = {
             repositories: [],
+            selectedRepositories: {}
         };
         this.search();
     }
@@ -21,6 +24,12 @@ class Repositories extends Component {
         } catch(e) {
             console.log(e);
         }
+    }
+
+    onRepositorySelectChange(id, value) {
+        const selectedRepositories = Object.assign({}, this.state.selectedRepositories);
+        selectedRepositories[id] = value;
+        this.setState({ selectedRepositories });
     }
 
     render() {
@@ -38,17 +47,13 @@ class Repositories extends Component {
                 </Grid.Row>
                 <Divider />
 
-                {this.state.repositories.map((respository) => (
-                    <Grid.Row key={respository.id}>
-                        <Grid.Column>
-                            <Segment>
-                                <Header size='medium'>
-                                    <Checkbox toggle label={respository.name} />
-                                </Header>
-                                <p>{respository.description}</p>
-                            </Segment>
-                        </Grid.Column>
-                    </Grid.Row>
+                {this.state.repositories.map((repository) => (
+                    <Item
+                        repository={repository}
+                        selected={this.state.selectedRepositories[repository.id]}
+                        onSelect={this.onRepositorySelectChange}
+                        key={repository.id}
+                    />
                 ))}
             </Grid>
         )

@@ -24,6 +24,7 @@ class Wizard extends Component {
 
         this.selectOrganization = this.selectOrganization.bind(this);
         this.selectRepositories = this.selectRepositories.bind(this);
+        this.selectUsers = this.selectUsers.bind(this);
     }
 
     selectOrganization(organization) {
@@ -38,6 +39,10 @@ class Wizard extends Component {
             currentStep: 2,
             repositories,
         });
+    }
+
+    selectUsers(users) {
+        this.props.finishSelection(this.state.repositories, users);
     }
 
     render() {
@@ -66,6 +71,7 @@ class Wizard extends Component {
                         <Users
                             organization={this.state.organization}
                             repositories={this.state.repositories}
+                            selectUsers={this.selectUsers}
                         />
                     )}
                 </Container>

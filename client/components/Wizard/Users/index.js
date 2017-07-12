@@ -53,7 +53,7 @@ class Users extends Component {
                 <Footer
                     items={this.state.selectedUsers}
                     onRemove={this.onSelectUser}
-                    onNextClick={null}
+                    onNextClick={() => this.props.selectUsers(this.state.selectedUsers)}
                 />
             </Grid>
         )

@@ -3,6 +3,7 @@ import { Container, Grid } from 'semantic-ui-react';
 import Header from './Header';
 import Organizations from './Organizations';
 import Repositories from './Repositories';
+import Users from './Users';
 import './styles.css';
 
 const gridWrapper = (step) => (
@@ -59,6 +60,12 @@ class Wizard extends Component {
                         <Repositories
                             organization={this.state.organization}
                             selectRepositories={this.selectRepositories}
+                        />
+                    )}
+                    {this.state.currentStep === 2 && gridWrapper(
+                        <Users
+                            organization={this.state.organization}
+                            repositories={this.state.repositories}
                         />
                     )}
                 </Container>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import throttle from 'lodash/throttle';
 import { Grid, Input } from 'semantic-ui-react';
 import Item from './Item';
-import Footer from './Footer';
+import Footer from '../Footer';
 import { getRepositories } from '../../../services/repositories';
 
 class Repositories extends Component {
@@ -69,7 +69,7 @@ class Repositories extends Component {
                 ))}
 
                 <Footer
-                    selectedRepositories={this.state.selectedRepositories}
+                    items={this.state.selectedRepositories}
                     onRemove={this.onRepositorySelectChange}
                     onNextClick={this.selectRepositories}
                 />

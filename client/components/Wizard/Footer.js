@@ -1,18 +1,18 @@
 import React from 'react';
 import { Grid, Label, Icon, Button } from 'semantic-ui-react';
 
-const Footer = ({selectedRepositories, onRemove, onNextClick}) => {
-    if (selectedRepositories.length === 0) {
+const Footer = ({items, onRemove, onNextClick}) => {
+    if (items.length === 0) {
         return null;
     }
     return (
-        <Grid.Row className="wizard_repositories_footer">
+        <Grid.Row className="wizard_footer">
             <Grid.Column width={14}>
                 <Label.Group color='blue'>
-                    {selectedRepositories.map(repo => (
-                        <Label key={repo}>
-                            {repo}
-                            <Icon name="delete" onClick={() => onRemove(repo)} />
+                    {items.map(item => (
+                        <Label key={item}>
+                            {item}
+                            <Icon name="delete" onClick={() => onRemove(item)} />
                         </Label>
                     ))}
                 </Label.Group>

@@ -42,7 +42,7 @@ class Wizard extends Component {
     }
 
     selectUsers(users) {
-        this.props.finishSelection(this.state.repositories, users);
+        this.props.finishSelection(this.state.organization, this.state.repositories, users);
     }
 
     render() {

@@ -37,6 +37,7 @@
     "morgan": "~1.8.1",
     "normalize.css": "^7.0.0",
     "object-assign": "4.1.1",
+    "parse-link-header": "^1.0.1",
     "postcss-flexbugs-fixes": "3.0.0",
     "postcss-loader": "2.0.6",
     "promise": "7.1.1",

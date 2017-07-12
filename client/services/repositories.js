@@ -1,5 +1,5 @@
-import { authorizedGet } from './api';
+import { authorizedGetData } from './api';
 
 export const getRepositories = (org, search = '') =>
-    authorizedGet(`/search/repositories?q=user:${org} ${search}`)
+    authorizedGetData(`/search/repositories?q=user:${org} ${search}`)
     .then(result => result.items);

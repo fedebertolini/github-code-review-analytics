@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Login from '../Login';
 import Wizard from '../Wizard';
+import Analytics from '../Analytics';
 import { hasAccessToken, invalidateAccessToken } from '../../services/auth';
 import { getLoggedInUser } from '../../services/users';
 
@@ -11,7 +12,9 @@ class App extends Component {
         this.state = {
             showLogin: !hasAccessToken(),
             showWizard: false,
+            showAnalytics: false,
             user: null,
+            selectedOrganization: null,
             selectedUsers: [],
             selectedRepositories: [],
         };
@@ -33,11 +36,13 @@ class App extends Component {
         }
     }
 
-    finishSelection(selectedRepositories, selectedUsers) {
+    finishSelection(selectedOrganization, selectedRepositories, selectedUsers) {
         this.setState({
+            selectedOrganization,
             selectedUsers,
             selectedRepositories,
             showWizard: false,
+            showAnalytics: true,
         });
     }
 
@@ -47,6 +52,15 @@ class App extends Component {
         }
         if (this.state.showWizard) {
             return <Wizard user={this.state.user} finishSelection={this.finishSelection} />
+        }
+        if (this.state.showAnalytics) {
+            return (
+                <Analytics
+                    organization={this.state.selectedOrganization}
+                    repositories={this.state.selectedRepositories}
+                    users={this.state.selectedUsers}
+                />
+            )
         }
         return null;
     }

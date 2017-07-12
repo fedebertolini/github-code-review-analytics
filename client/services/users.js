@@ -1,5 +1,5 @@
-import { authorizedGet } from './api';
+import { authorizedGetData } from './api';
 
-export const getLoggedInUser = () => authorizedGet('/user');
+export const getLoggedInUser = () => authorizedGetData('/user');
 
-export const getUsersOrganizations = () => authorizedGet(`/user/orgs`);
+export const getUsersOrganizations = () => authorizedGetData(`/user/orgs`);

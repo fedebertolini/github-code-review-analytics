@@ -1,6 +1,6 @@
 import flatten from 'lodash/flatten';
 import uniqBy from 'lodash/uniqBy';
-import { authorizedGet } from './api';
+import { authorizedGetData } from './api';
 
 export const getContributors = async (org, repositories) => {
     const result = await Promise.all(repositories.map(repo => getContributorsByRepo(org, repo)));
@@ -9,5 +9,5 @@ export const getContributors = async (org, repositories) => {
 };
 
 const getContributorsByRepo = async (org, repo) => {
-    return authorizedGet(`/repos/${org}/${repo}/stats/contributors`);
+    return authorizedGetData(`/repos/${org}/${repo}/stats/contributors`);
 };

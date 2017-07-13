@@ -13,6 +13,7 @@ class Analytics extends Component {
                 involves: users
             };
             const pullRequests = await getRepositoriesPullRequests(organization, repositories, filter);
+
             this.setState({
                 pullRequests,
             });

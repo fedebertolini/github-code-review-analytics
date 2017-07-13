@@ -1,5 +1,5 @@
 import flatten from 'lodash/flatten';
-import { getAllPages } from './api';
+import { getAllPages, authorizedGetData } from './api';
 
 export const getRepositoriesPullRequests = (organization, repositories, filters = {}) =>
     Promise.all(repositories.map(repo => getRepositoryPullRequests(organization, repo, filters)))
@@ -17,5 +17,8 @@ export const getRepositoryPullRequests = async (organization, repository, filter
         url += `created:<=${filters.createdTo}+`;
     }
 
-    return getAllPages(url);
+    const basicPRInfoList = await getAllPages(url);
+    return Promise.all(basicPRInfoList.map(pr => {
+        return authorizedGetData(`/repos/${organization}/${repository}/pulls/${pr.number}`);
+    }))
 };

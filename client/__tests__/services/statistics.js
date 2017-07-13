@@ -14,12 +14,21 @@ describe('statistics service', () => {
         expect(stats.users).toEqual({
             fedebertolini: {
                 pullRequestsCreated: 2,
+                totalAdditions: 73,
+                totalDeletions: 22,
+                totalCommits: 3
             },
             sokra: {
                 pullRequestsCreated: 2,
+                totalAdditions: 1230,
+                totalDeletions: 547,
+                totalCommits: 31
             },
             tuures: {
                 pullRequestsCreated: 1,
+                totalAdditions: 52,
+                totalDeletions: 6,
+                totalCommits: 1,
             }
         });
     });

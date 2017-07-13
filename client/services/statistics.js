@@ -23,15 +23,23 @@ export const getPullRequestsStatistics = (pullRequests, users) => {
 
     result.timeToMerge = calculateTimeToMerge(timesToMerge);
 
+    console.log(result);
+
     return result;
 };
 
 const incrementUserCreatedPR = (userStates, pr) => {
     if (userStates[pr.user.login]) {
         userStates[pr.user.login].pullRequestsCreated++;
+        userStates[pr.user.login].totalAdditions += pr.additions;
+        userStates[pr.user.login].totalDeletions += pr.deletions;
+        userStates[pr.user.login].totalCommits += pr.commits;
     } else {
         userStates[pr.user.login] = {
             pullRequestsCreated: 1,
+            totalAdditions: pr.additions,
+            totalDeletions: pr.deletions,
+            totalCommits: pr.commits,
         };
     }
 };

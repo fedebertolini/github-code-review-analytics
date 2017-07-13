@@ -16,17 +16,15 @@ export const getPullRequestsStatistics = (pullRequests, users) => {
     });
 
     pullRequests.forEach(pr => {
-        incrementUserCreatedPR(result.users, pr, users);
+        incrementUserCreatedPR(result.users, pr);
         incrementState(result.state, pr);
     });
 
     return result;
 };
 
-const incrementUserCreatedPR = (userStates, pr, users) => {
-    if (users.some(user => pr.user.login === user)) {
-        userStates[pr.user.login].pullRequestsCreated++;
-    }
+const incrementUserCreatedPR = (userStates, pr) => {
+    userStates[pr.user.login].pullRequestsCreated++;
 };
 
 const incrementState = (state, pr) => {

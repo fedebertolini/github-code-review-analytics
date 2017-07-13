@@ -7,8 +7,8 @@ export const getRepositoriesPullRequests = (organization, repositories, filters 
 
 export const getRepositoryPullRequests = async (organization, repository, filters = {}) => {
     let url = `/search/issues?per_page=100&q=repo:${organization}/${repository}+type:pr+`;
-    if (filters.involves && filters.involves.length) {
-        url += filters.involves.map(involve => `involves:${involve}+`).join('');
+    if (filters.authors && filters.authors.length) {
+        url += filters.authors.map(author => `author:${author}+`).join('');
     }
     if (filters.createdFrom) {
         url += `created:>=${filters.createdFrom}+`;

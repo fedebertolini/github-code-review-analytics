@@ -10,7 +10,7 @@ class Analytics extends Component {
         const { organization, repositories, users } = this.props;
         try {
             const filter = {
-                involves: users
+                authors: users
             };
             const pullRequests = await getRepositoriesPullRequests(organization, repositories, filter);
 

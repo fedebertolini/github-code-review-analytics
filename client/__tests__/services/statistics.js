@@ -8,8 +8,7 @@ import webpack4202 from '../mocks/pull-requests/webpack-4202.json';
 describe('statistics service', () => {
     it('should return the user statistics', () => {
         const prs = [webpack36, webpack683, webpack3427, webpack4201, webpack4202];
-        const users = ['fedebertolini', 'sokra', 'tuures'];
-        const stats = getPullRequestsStatistics(prs, users);
+        const stats = getPullRequestsStatistics(prs);
 
         expect(stats.users).toEqual({
             fedebertolini: {
@@ -35,8 +34,7 @@ describe('statistics service', () => {
 
     it('should return the pr state statistics', () => {
         const prs = [webpack36, webpack683, webpack3427, webpack4201, webpack4202];
-        const users = ['fedebertolini', 'sokra', 'tuures'];
-        const stats = getPullRequestsStatistics(prs, users);
+        const stats = getPullRequestsStatistics(prs);
 
         expect(stats.state).toEqual({
             openCount: 1,

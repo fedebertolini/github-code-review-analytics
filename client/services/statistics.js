@@ -1,8 +1,9 @@
 import mean from 'lodash/mean';
 import sum from 'lodash/sum';
 import round from 'lodash/round';
+import flatten from 'lodash/flatten';
 
-export const getPullRequestsStatistics = (pullRequests, users) => {
+export const getPullRequestsStatistics = (pullRequests) => {
     const result = {
         users: {},
         state: {
@@ -13,17 +14,24 @@ export const getPullRequestsStatistics = (pullRequests, users) => {
         },
     };
 
-    const timesToMerge = [];
+    const timesToMergeByDay = [[], [], [], [], [], [], []];
 
     pullRequests.forEach(pr => {
         incrementUserCreatedPR(result.users, pr);
         incrementState(result.state, pr);
-        addTimeToMerge(timesToMerge, pr);
+
+        if (pr.merged) {
+            var dateCreated = new Date(pr.created_at);
+            timesToMergeByDay[dateCreated.getDay()].push(getTimeToMerge(pr));
+        }
     });
 
-    result.timeToMerge = calculateTimeToMerge(timesToMerge);
-
-    console.log(result);
+    result.timeToMerge = {
+        total: calculateTimeToMergeStats(flatten(timesToMergeByDay)),
+        byDay: [0, 1, 2, 3, 4, 5, 6].map(day => {
+            return calculateTimeToMergeStats(timesToMergeByDay[day]);
+        }),
+    };
 
     return result;
 };
@@ -57,16 +65,20 @@ const incrementState = (state, pr) => {
     }
 };
 
-const addTimeToMerge = (times, pr) => {
+const getTimeToMerge = (pr) => {
     if (pr.merged) {
         const createdDate = new Date(pr.created_at);
         const mergedDate = new Date(pr.merged_at);
         const milliseconds = mergedDate.getTime() - createdDate.getTime();
-        times.push(Math.floor(milliseconds / 1000));
+        return Math.floor(milliseconds / 1000);
     }
+    return 0;
 };
 
-const calculateTimeToMerge = (secondsToMerge) => {
+const calculateTimeToMergeStats = (secondsToMerge) => {
+    if (!secondsToMerge.length) {
+        return {};
+    }
     const meanTime = mean(secondsToMerge);
     const meanDeviation = deviation(secondsToMerge, meanTime);
 

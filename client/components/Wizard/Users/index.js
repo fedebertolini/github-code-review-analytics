@@ -8,6 +8,7 @@ import Footer from '../Footer';
 class Users extends Component {
     async componentWillMount() {
         this.onSelectUser = this.onSelectUser.bind(this);
+        this.onNextClick = this.onNextClick.bind(this);
 
         this.state = {
             users: [],
@@ -33,6 +34,15 @@ class Users extends Component {
         }
     }
 
+    onNextClick() {
+        const users = this.state.users.filter(user =>
+            this.state.selectedUsers.some(login =>
+                user.login === login
+            )
+        );
+        this.props.selectUsers(users)
+    }
+
     render() {
         return (
             <Grid padded relaxed>
@@ -53,7 +63,7 @@ class Users extends Component {
                 <Footer
                     items={this.state.selectedUsers}
                     onRemove={this.onSelectUser}
-                    onNextClick={() => this.props.selectUsers(this.state.selectedUsers)}
+                    onNextClick={this.onNextClick}
                 />
             </Grid>
         )

@@ -4,7 +4,7 @@ import round from 'lodash/round';
 import flow from 'lodash/flow';
 import compact from 'lodash/compact';
 import uniq from 'lodash/uniq';
-import isDate from 'lodash/isDate';
+import { getDateHoursDiff } from '../utils/date';
 
 export const getPullRequestsStatistics = (pullRequests) => ({
     total: getStats(pullRequests),
@@ -73,13 +73,6 @@ const deviation = (values, meanValue) => {
     const diff = values.map(v => Math.abs(v - meanValue));
     return sum(diff) / diff.length;
 };
-
-const getDateHoursDiff = (d1, d2) => {
-    const date1 = isDate(d1) ? d1 : new Date(d1);
-    const date2 = isDate(d2) ? d2 : new Date(d2);
-    const diff = Math.abs(date1.getTime() - date2.getTime());
-    return round(diff / 3600000, 2);
-}
 
 const roundValues = values => values.map(value => round(value, 2));
 

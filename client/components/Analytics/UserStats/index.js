@@ -15,8 +15,7 @@ const UserStats = ({stats, users}) => {
                         <Table.HeaderCell>User</Table.HeaderCell>
                         <Table.HeaderCell>PRs Created</Table.HeaderCell>
                         <Table.HeaderCell>Commits</Table.HeaderCell>
-                        <Table.HeaderCell>Lines Added</Table.HeaderCell>
-                        <Table.HeaderCell>Lines Deleted</Table.HeaderCell>
+                        <Table.HeaderCell>Commits / PR</Table.HeaderCell>
                     </Table.Row>
                 </Table.Header>
                 <Table.Body>

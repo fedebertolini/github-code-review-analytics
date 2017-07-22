@@ -21,7 +21,7 @@ export const getPullRequestsStatistics = (pullRequests) => {
         incrementState(result.state, pr);
 
         if (pr.merged) {
-            var dateCreated = new Date(pr.created_at);
+            var dateCreated = new Date(pr.createdAt);
             timesToMergeByDay[dateCreated.getDay()].push(getTimeToMerge(pr));
         }
     });
@@ -37,28 +37,24 @@ export const getPullRequestsStatistics = (pullRequests) => {
 };
 
 const incrementUserCreatedPR = (userStates, pr) => {
-    if (userStates[pr.user.login]) {
-        userStates[pr.user.login].pullRequestsCreated++;
-        userStates[pr.user.login].totalAdditions += pr.additions;
-        userStates[pr.user.login].totalDeletions += pr.deletions;
-        userStates[pr.user.login].totalCommits += pr.commits;
+    if (userStates[pr.author]) {
+        userStates[pr.author].pullRequestsCreated++;
+        userStates[pr.author].totalCommits += pr.totalCommits;
     } else {
-        userStates[pr.user.login] = {
+        userStates[pr.author] = {
             pullRequestsCreated: 1,
-            totalAdditions: pr.additions,
-            totalDeletions: pr.deletions,
-            totalCommits: pr.commits,
+            totalCommits: pr.totalCommits,
         };
     }
 };
 
 const incrementState = (state, pr) => {
     state.total++;
-    if (pr.state === 'open') {
+    if (pr.state === 'OPEN') {
         state.openCount++;
-    } else if (pr.merged) {
+    } else if (pr.state === 'MERGED') {
         state.mergedCount++;
-    } else if (pr.state === 'closed') {
+    } else if (pr.state === 'CLOSED') {
         state.closedCount++;
     } else {
         console.log(`unknown status ${pr.state}`);
@@ -66,9 +62,9 @@ const incrementState = (state, pr) => {
 };
 
 const getTimeToMerge = (pr) => {
-    if (pr.merged) {
-        const createdDate = new Date(pr.created_at);
-        const mergedDate = new Date(pr.merged_at);
+    if (pr.state === 'MERGED') {
+        const createdDate = new Date(pr.createdAt);
+        const mergedDate = new Date(pr.mergedAt);
         const milliseconds = mergedDate.getTime() - createdDate.getTime();
         return Math.floor(milliseconds / 1000);
     }

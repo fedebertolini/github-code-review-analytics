@@ -1,24 +1,83 @@
 import flatten from 'lodash/flatten';
-import { getAllPages, authorizedGetData } from './api';
+import { authorizedGraphQL } from './api';
 
 export const getRepositoriesPullRequests = (organization, repositories, filters = {}) =>
     Promise.all(repositories.map(repo => getRepositoryPullRequests(organization, repo, filters)))
     .then(result => flatten(result));
 
 export const getRepositoryPullRequests = async (organization, repository, filters = {}) => {
-    let url = `/search/issues?per_page=100&q=repo:${organization}/${repository}+type:pr+`;
+    const searchQuery = buildQueryParameter(organization, repository, filters);
+
+    const graphQLQuery = pullRequestGraphQLQuery(searchQuery, 100, 0);
+
+    const result = await authorizedGraphQL('/graphql', { query: graphQLQuery });
+
+    return mapGraphQLResult(result.data);
+};
+
+const buildQueryParameter = (organization, repository, filters = {}) => {
+    let searchQuery = `repo:${organization}/${repository} type:pr`;
+
     if (filters.authors && filters.authors.length) {
-        url += filters.authors.map(author => `author:${author}+`).join('');
+        searchQuery += filters.authors.map(author => ` author:${author}`).join('');
     }
     if (filters.createdFrom) {
-        url += `created:>=${filters.createdFrom}+`;
+        searchQuery += ` created:>=${filters.createdFrom}`;
     }
     if (filters.createdTo) {
-        url += `created:<=${filters.createdTo}+`;
+        searchQuery += ` created:<=${filters.createdTo}`;
     }
+    return searchQuery;
+};
 
-    const basicPRInfoList = await getAllPages(url);
-    return Promise.all(basicPRInfoList.map(pr => {
-        return authorizedGetData(`/repos/${organization}/${repository}/pulls/${pr.number}`);
-    }))
+const pullRequestGraphQLQuery = (searchQuery, first, after = null) =>
+`{
+    search(query: "${searchQuery}", type: ISSUE, first: ${first}, after: ${after ? `"${after}"` : 'null'}) {
+        issueCount
+        pageInfo {
+          endCursor
+        }
+        edges {
+          cursor
+          node {
+            ... on PullRequest {
+              number
+              createdAt
+              mergedAt
+              state
+              author {
+                login
+              }
+              commits(first: 1) {
+                totalCount
+              }
+              comments(first: 100) {
+                totalCount
+                nodes {
+                  createdAt
+                  author {
+                    login
+                  }
+                }
+              }
+            }
+          }
+        }
+    }
+}`;
+
+export const mapGraphQLResult = (result) => {
+    return result.data.search.edges.map(edge => ({
+        author: edge.node.author.login,
+        number: edge.node.number,
+        createdAt: edge.node.createdAt,
+        mergedAt: edge.node.mergedAt,
+        state: edge.node.state,
+        totalCommits: edge.node.commits.totalCount,
+        totalComments: edge.node.comments.totalCount,
+        comments: edge.node.comments.nodes.map(comment => ({
+            createdAt: comment.createdAt,
+            author: comment.author.login,
+        }))
+    }));
 };

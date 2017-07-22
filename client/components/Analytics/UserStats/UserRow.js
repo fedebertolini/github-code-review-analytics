@@ -1,4 +1,5 @@
 import React from 'react';
+import round from 'lodash/round';
 import { Image, Table, Header } from 'semantic-ui-react';
 
 const UserRow = ({ statistics }) => (
@@ -18,10 +19,7 @@ const UserRow = ({ statistics }) => (
             {statistics.totalCommits}
         </Table.Cell>
         <Table.Cell>
-            {statistics.totalAdditions}
-        </Table.Cell>
-        <Table.Cell>
-            {statistics.totalDeletions}
+            {round(statistics.totalCommits / statistics.pullRequestsCreated, 1)}
         </Table.Cell>
     </Table.Row>
 );

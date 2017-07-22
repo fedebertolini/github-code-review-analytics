@@ -1,4 +1,4 @@
-import { get } from 'axios';
+import { get, post } from 'axios';
 import flatten from 'lodash/flatten';
 import parseHeaderLinks from 'parse-link-header';
 import { getAccessToken } from './auth';
@@ -14,6 +14,15 @@ export const authorizedGet = (url, params) => {
             Authorization: `Bearer ${getAccessToken()}`,
         },
         params,
+    });
+};
+
+export const authorizedGraphQL = (url, data) => {
+    return post(`${host}${url}`, data, {
+        headers: {
+            Authorization: `Bearer ${getAccessToken()}`,
+            'Content-Type': 'application/graphql'
+        },
     });
 };
 

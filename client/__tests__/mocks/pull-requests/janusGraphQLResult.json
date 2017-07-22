@@ -1,0 +1,2631 @@
+{
+    "data": {
+        "search": {
+            "issueCount": 131,
+            "pageInfo": {
+                "endCursor": "Y3Vyc29yOjEwMA=="
+            },
+            "edges": [{
+                "cursor": "Y3Vyc29yOjE=",
+                "node": {
+                    "number": 173,
+                    "createdAt": "2017-07-21T15:29:20Z",
+                    "mergedAt": null,
+                    "state": "OPEN",
+                    "author": {
+                        "login": "italolelis"
+                    },
+                    "commits": {
+                        "totalCount": 4
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-07-21T15:37:02Z",
+                            "author": {
+                                "login": "codecov"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjI=",
+                "node": {
+                    "number": 172,
+                    "createdAt": "2017-07-20T09:58:30Z",
+                    "mergedAt": "2017-07-20T13:52:33Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "italolelis"
+                    },
+                    "commits": {
+                        "totalCount": 20
+                    },
+                    "comments": {
+                        "totalCount": 2,
+                        "nodes": [{
+                            "createdAt": "2017-07-20T10:05:32Z",
+                            "author": {
+                                "login": "codecov"
+                            }
+                        }, {
+                            "createdAt": "2017-07-20T11:00:39Z",
+                            "author": {
+                                "login": "vgarvardt"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjM=",
+                "node": {
+                    "number": 171,
+                    "createdAt": "2017-07-20T09:06:31Z",
+                    "mergedAt": "2017-07-20T09:18:32Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 2,
+                        "nodes": [{
+                            "createdAt": "2017-07-20T09:12:23Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }, {
+                            "createdAt": "2017-07-20T09:18:34Z",
+                            "author": {
+                                "login": "codecov"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjQ=",
+                "node": {
+                    "number": 170,
+                    "createdAt": "2017-07-19T14:23:45Z",
+                    "mergedAt": "2017-07-19T14:40:58Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 6
+                    },
+                    "comments": {
+                        "totalCount": 2,
+                        "nodes": [{
+                            "createdAt": "2017-07-19T14:23:47Z",
+                            "author": {
+                                "login": "codecov"
+                            }
+                        }, {
+                            "createdAt": "2017-07-19T14:39:05Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjU=",
+                "node": {
+                    "number": 169,
+                    "createdAt": "2017-07-14T12:41:24Z",
+                    "mergedAt": "2017-07-17T10:32:41Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "italolelis"
+                    },
+                    "commits": {
+                        "totalCount": 9
+                    },
+                    "comments": {
+                        "totalCount": 3,
+                        "nodes": [{
+                            "createdAt": "2017-07-14T12:49:38Z",
+                            "author": {
+                                "login": "codecov"
+                            }
+                        }, {
+                            "createdAt": "2017-07-17T10:18:59Z",
+                            "author": {
+                                "login": "rafaeljesus"
+                            }
+                        }, {
+                            "createdAt": "2017-07-17T10:24:28Z",
+                            "author": {
+                                "login": "kieranajp"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjY=",
+                "node": {
+                    "number": 168,
+                    "createdAt": "2017-07-13T09:44:46Z",
+                    "mergedAt": "2017-07-13T10:02:59Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 3,
+                        "nodes": [{
+                            "createdAt": "2017-07-13T09:49:17Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }, {
+                            "createdAt": "2017-07-13T09:51:42Z",
+                            "author": {
+                                "login": "codecov"
+                            }
+                        }, {
+                            "createdAt": "2017-07-13T09:59:33Z",
+                            "author": {
+                                "login": "rafaeljesus"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjc=",
+                "node": {
+                    "number": 167,
+                    "createdAt": "2017-07-11T10:23:00Z",
+                    "mergedAt": "2017-07-11T14:31:14Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 2,
+                        "nodes": [{
+                            "createdAt": "2017-07-11T10:30:03Z",
+                            "author": {
+                                "login": "codecov"
+                            }
+                        }, {
+                            "createdAt": "2017-07-11T14:10:34Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjg=",
+                "node": {
+                    "number": 166,
+                    "createdAt": "2017-07-10T15:42:49Z",
+                    "mergedAt": "2017-07-10T16:04:45Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "italolelis"
+                    },
+                    "commits": {
+                        "totalCount": 3
+                    },
+                    "comments": {
+                        "totalCount": 2,
+                        "nodes": [{
+                            "createdAt": "2017-07-10T15:49:23Z",
+                            "author": {
+                                "login": "codecov"
+                            }
+                        }, {
+                            "createdAt": "2017-07-10T16:04:10Z",
+                            "author": {
+                                "login": "kieranajp"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjk=",
+                "node": {
+                    "number": 164,
+                    "createdAt": "2017-07-05T09:08:55Z",
+                    "mergedAt": "2017-07-05T10:14:32Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 4,
+                        "nodes": [{
+                            "createdAt": "2017-07-05T09:42:35Z",
+                            "author": {
+                                "login": "rafaeljesus"
+                            }
+                        }, {
+                            "createdAt": "2017-07-05T09:45:01Z",
+                            "author": {
+                                "login": "vgarvardt"
+                            }
+                        }, {
+                            "createdAt": "2017-07-05T09:47:03Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }, {
+                            "createdAt": "2017-07-05T09:48:55Z",
+                            "author": {
+                                "login": "rafaeljesus"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjEw",
+                "node": {
+                    "number": 162,
+                    "createdAt": "2017-07-05T08:30:06Z",
+                    "mergedAt": "2017-07-10T12:55:58Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "italolelis"
+                    },
+                    "commits": {
+                        "totalCount": 26
+                    },
+                    "comments": {
+                        "totalCount": 2,
+                        "nodes": [{
+                            "createdAt": "2017-07-07T17:19:43Z",
+                            "author": {
+                                "login": "rafaeljesus"
+                            }
+                        }, {
+                            "createdAt": "2017-07-10T11:02:36Z",
+                            "author": {
+                                "login": "vgarvardt"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjEx",
+                "node": {
+                    "number": 161,
+                    "createdAt": "2017-07-04T12:08:05Z",
+                    "mergedAt": "2017-07-04T14:03:29Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "italolelis"
+                    },
+                    "commits": {
+                        "totalCount": 4
+                    },
+                    "comments": {
+                        "totalCount": 2,
+                        "nodes": [{
+                            "createdAt": "2017-07-04T12:11:14Z",
+                            "author": {
+                                "login": "zeelax"
+                            }
+                        }, {
+                            "createdAt": "2017-07-04T13:27:25Z",
+                            "author": {
+                                "login": "rafaeljesus"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjEy",
+                "node": {
+                    "number": 160,
+                    "createdAt": "2017-07-03T09:36:43Z",
+                    "mergedAt": "2017-07-03T09:42:41Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-07-03T09:40:28Z",
+                            "author": {
+                                "login": "rafaeljesus"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjEz",
+                "node": {
+                    "number": 159,
+                    "createdAt": "2017-06-30T14:44:05Z",
+                    "mergedAt": "2017-07-04T12:03:57Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "italolelis"
+                    },
+                    "commits": {
+                        "totalCount": 41
+                    },
+                    "comments": {
+                        "totalCount": 7,
+                        "nodes": [{
+                            "createdAt": "2017-07-03T09:03:06Z",
+                            "author": {
+                                "login": "rafaeljesus"
+                            }
+                        }, {
+                            "createdAt": "2017-07-04T10:15:55Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }, {
+                            "createdAt": "2017-07-04T10:45:19Z",
+                            "author": {
+                                "login": "vgarvardt"
+                            }
+                        }, {
+                            "createdAt": "2017-07-04T11:39:13Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }, {
+                            "createdAt": "2017-07-04T11:44:31Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }, {
+                            "createdAt": "2017-07-04T12:03:23Z",
+                            "author": {
+                                "login": "vgarvardt"
+                            }
+                        }, {
+                            "createdAt": "2017-07-04T12:09:31Z",
+                            "author": {
+                                "login": "rafaeljesus"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjE0",
+                "node": {
+                    "number": 158,
+                    "createdAt": "2017-06-29T10:54:58Z",
+                    "mergedAt": "2017-06-29T13:41:24Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 4
+                    },
+                    "comments": {
+                        "totalCount": 3,
+                        "nodes": [{
+                            "createdAt": "2017-06-29T10:56:14Z",
+                            "author": {
+                                "login": "rbnunes"
+                            }
+                        }, {
+                            "createdAt": "2017-06-29T11:51:25Z",
+                            "author": {
+                                "login": "rafaeljesus"
+                            }
+                        }, {
+                            "createdAt": "2017-06-29T12:41:34Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjE1",
+                "node": {
+                    "number": 157,
+                    "createdAt": "2017-06-29T08:38:32Z",
+                    "mergedAt": "2017-06-29T08:57:18Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 4,
+                        "nodes": [{
+                            "createdAt": "2017-06-29T08:50:58Z",
+                            "author": {
+                                "login": "zeelax"
+                            }
+                        }, {
+                            "createdAt": "2017-06-29T08:52:19Z",
+                            "author": {
+                                "login": "zeelax"
+                            }
+                        }, {
+                            "createdAt": "2017-06-29T08:54:54Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }, {
+                            "createdAt": "2017-06-29T08:56:00Z",
+                            "author": {
+                                "login": "kieranajp"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjE2",
+                "node": {
+                    "number": 156,
+                    "createdAt": "2017-06-26T14:52:06Z",
+                    "mergedAt": "2017-06-26T21:51:19Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "italolelis"
+                    },
+                    "commits": {
+                        "totalCount": 4
+                    },
+                    "comments": {
+                        "totalCount": 4,
+                        "nodes": [{
+                            "createdAt": "2017-06-26T15:47:07Z",
+                            "author": {
+                                "login": "rafaeljesus"
+                            }
+                        }, {
+                            "createdAt": "2017-06-26T19:46:59Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }, {
+                            "createdAt": "2017-06-26T19:50:03Z",
+                            "author": {
+                                "login": "rafaeljesus"
+                            }
+                        }, {
+                            "createdAt": "2017-06-26T21:50:22Z",
+                            "author": {
+                                "login": "vgarvardt"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjE3",
+                "node": {
+                    "number": 155,
+                    "createdAt": "2017-06-26T09:42:59Z",
+                    "mergedAt": "2017-06-30T13:52:34Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 2
+                    },
+                    "comments": {
+                        "totalCount": 3,
+                        "nodes": [{
+                            "createdAt": "2017-06-30T10:55:58Z",
+                            "author": {
+                                "login": "vgarvardt"
+                            }
+                        }, {
+                            "createdAt": "2017-06-30T10:59:12Z",
+                            "author": {
+                                "login": "rafaeljesus"
+                            }
+                        }, {
+                            "createdAt": "2017-06-30T13:48:20Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjE4",
+                "node": {
+                    "number": 154,
+                    "createdAt": "2017-06-26T08:09:31Z",
+                    "mergedAt": "2017-06-30T10:50:49Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 3,
+                        "nodes": [{
+                            "createdAt": "2017-06-26T08:59:54Z",
+                            "author": {
+                                "login": "rafaeljesus"
+                            }
+                        }, {
+                            "createdAt": "2017-06-30T10:34:21Z",
+                            "author": {
+                                "login": "vgarvardt"
+                            }
+                        }, {
+                            "createdAt": "2017-06-30T10:49:31Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjE5",
+                "node": {
+                    "number": 153,
+                    "createdAt": "2017-06-21T17:38:31Z",
+                    "mergedAt": "2017-06-29T10:36:12Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "italolelis"
+                    },
+                    "commits": {
+                        "totalCount": 41
+                    },
+                    "comments": {
+                        "totalCount": 3,
+                        "nodes": [{
+                            "createdAt": "2017-06-26T13:58:27Z",
+                            "author": {
+                                "login": "vgarvardt"
+                            }
+                        }, {
+                            "createdAt": "2017-06-29T08:57:50Z",
+                            "author": {
+                                "login": "rafaeljesus"
+                            }
+                        }, {
+                            "createdAt": "2017-06-29T09:12:37Z",
+                            "author": {
+                                "login": "rbnunes"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjIw",
+                "node": {
+                    "number": 152,
+                    "createdAt": "2017-06-19T10:54:39Z",
+                    "mergedAt": "2017-06-19T12:21:13Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 3,
+                        "nodes": [{
+                            "createdAt": "2017-06-19T10:59:19Z",
+                            "author": {
+                                "login": "rafaeljesus"
+                            }
+                        }, {
+                            "createdAt": "2017-06-19T11:01:24Z",
+                            "author": {
+                                "login": "vgarvardt"
+                            }
+                        }, {
+                            "createdAt": "2017-06-19T11:32:29Z",
+                            "author": {
+                                "login": "kieranajp"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjIx",
+                "node": {
+                    "number": 151,
+                    "createdAt": "2017-06-19T09:56:44Z",
+                    "mergedAt": "2017-06-19T10:01:26Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 2,
+                        "nodes": [{
+                            "createdAt": "2017-06-19T09:58:00Z",
+                            "author": {
+                                "login": "rafaeljesus"
+                            }
+                        }, {
+                            "createdAt": "2017-06-19T10:01:07Z",
+                            "author": {
+                                "login": "rbnunes"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjIy",
+                "node": {
+                    "number": 150,
+                    "createdAt": "2017-06-09T12:59:48Z",
+                    "mergedAt": "2017-06-17T12:45:53Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "italolelis"
+                    },
+                    "commits": {
+                        "totalCount": 17
+                    },
+                    "comments": {
+                        "totalCount": 2,
+                        "nodes": [{
+                            "createdAt": "2017-06-13T16:56:46Z",
+                            "author": {
+                                "login": "vgarvardt"
+                            }
+                        }, {
+                            "createdAt": "2017-06-15T16:03:26Z",
+                            "author": {
+                                "login": "rafaeljesus"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjIz",
+                "node": {
+                    "number": 149,
+                    "createdAt": "2017-06-02T15:13:17Z",
+                    "mergedAt": "2017-06-02T15:29:58Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-06-02T15:29:46Z",
+                            "author": {
+                                "login": "rafaeljesus"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjI0",
+                "node": {
+                    "number": 148,
+                    "createdAt": "2017-06-02T13:20:38Z",
+                    "mergedAt": "2017-06-02T13:44:51Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-06-02T13:43:37Z",
+                            "author": {
+                                "login": "rafaeljesus"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjI1",
+                "node": {
+                    "number": 147,
+                    "createdAt": "2017-05-31T16:10:20Z",
+                    "mergedAt": "2017-06-01T16:31:32Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 9
+                    },
+                    "comments": {
+                        "totalCount": 5,
+                        "nodes": [{
+                            "createdAt": "2017-05-31T16:36:02Z",
+                            "author": {
+                                "login": "rafaeljesus"
+                            }
+                        }, {
+                            "createdAt": "2017-05-31T16:36:51Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }, {
+                            "createdAt": "2017-05-31T16:39:23Z",
+                            "author": {
+                                "login": "vgarvardt"
+                            }
+                        }, {
+                            "createdAt": "2017-06-01T15:01:04Z",
+                            "author": {
+                                "login": "vgarvardt"
+                            }
+                        }, {
+                            "createdAt": "2017-06-01T16:25:32Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjI2",
+                "node": {
+                    "number": 146,
+                    "createdAt": "2017-05-29T16:38:10Z",
+                    "mergedAt": "2017-05-30T09:11:34Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 2,
+                        "nodes": [{
+                            "createdAt": "2017-05-30T08:57:43Z",
+                            "author": {
+                                "login": "rafaeljesus"
+                            }
+                        }, {
+                            "createdAt": "2017-05-30T09:10:16Z",
+                            "author": {
+                                "login": "rbnunes"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjI3",
+                "node": {
+                    "number": 140,
+                    "createdAt": "2017-05-15T13:06:44Z",
+                    "mergedAt": "2017-05-15T13:29:10Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 2
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-05-15T13:27:02Z",
+                            "author": {
+                                "login": "kieranajp"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjI4",
+                "node": {
+                    "number": 139,
+                    "createdAt": "2017-05-11T15:43:33Z",
+                    "mergedAt": "2017-05-11T15:49:18Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 2,
+                        "nodes": [{
+                            "createdAt": "2017-05-11T15:45:27Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }, {
+                            "createdAt": "2017-05-11T15:45:59Z",
+                            "author": {
+                                "login": "rafaeljesus"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjI5",
+                "node": {
+                    "number": 137,
+                    "createdAt": "2017-05-06T09:25:25Z",
+                    "mergedAt": "2017-05-06T10:53:31Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "kieranajp"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-05-06T10:53:20Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjMw",
+                "node": {
+                    "number": 136,
+                    "createdAt": "2017-05-02T16:28:53Z",
+                    "mergedAt": "2017-05-05T08:13:12Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 2,
+                        "nodes": [{
+                            "createdAt": "2017-05-03T10:16:23Z",
+                            "author": {
+                                "login": "rafaeljesus"
+                            }
+                        }, {
+                            "createdAt": "2017-05-04T22:13:55Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjMx",
+                "node": {
+                    "number": 135,
+                    "createdAt": "2017-04-27T15:05:29Z",
+                    "mergedAt": "2017-04-27T16:26:36Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "italolelis"
+                    },
+                    "commits": {
+                        "totalCount": 8
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-04-27T16:22:35Z",
+                            "author": {
+                                "login": "rafaeljesus"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjMy",
+                "node": {
+                    "number": 134,
+                    "createdAt": "2017-04-24T09:40:11Z",
+                    "mergedAt": "2017-04-24T13:32:30Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 3
+                    },
+                    "comments": {
+                        "totalCount": 2,
+                        "nodes": [{
+                            "createdAt": "2017-04-24T10:08:39Z",
+                            "author": {
+                                "login": "rafaeljesus"
+                            }
+                        }, {
+                            "createdAt": "2017-04-24T13:32:12Z",
+                            "author": {
+                                "login": "rafaeljesus"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjMz",
+                "node": {
+                    "number": 133,
+                    "createdAt": "2017-04-24T08:44:17Z",
+                    "mergedAt": "2017-04-24T08:54:08Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-04-24T08:53:40Z",
+                            "author": {
+                                "login": "rafaeljesus"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjM0",
+                "node": {
+                    "number": 132,
+                    "createdAt": "2017-04-23T16:50:31Z",
+                    "mergedAt": "2017-04-24T08:16:54Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 2,
+                        "nodes": [{
+                            "createdAt": "2017-04-24T08:08:06Z",
+                            "author": {
+                                "login": "rafaeljesus"
+                            }
+                        }, {
+                            "createdAt": "2017-04-24T08:08:41Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjM1",
+                "node": {
+                    "number": 131,
+                    "createdAt": "2017-04-22T00:15:24Z",
+                    "mergedAt": "2017-04-23T11:10:28Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "italolelis"
+                    },
+                    "commits": {
+                        "totalCount": 18
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-04-23T11:09:40Z",
+                            "author": {
+                                "login": "rafaeljesus"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjM2",
+                "node": {
+                    "number": 130,
+                    "createdAt": "2017-04-21T13:33:13Z",
+                    "mergedAt": "2017-04-21T21:34:02Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-04-21T21:33:53Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjM3",
+                "node": {
+                    "number": 129,
+                    "createdAt": "2017-04-19T10:38:42Z",
+                    "mergedAt": "2017-04-19T15:11:54Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "kieranajp"
+                    },
+                    "commits": {
+                        "totalCount": 2
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-04-19T15:11:42Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjM4",
+                "node": {
+                    "number": 128,
+                    "createdAt": "2017-04-13T12:09:57Z",
+                    "mergedAt": "2017-04-13T14:20:19Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "italolelis"
+                    },
+                    "commits": {
+                        "totalCount": 5
+                    },
+                    "comments": {
+                        "totalCount": 2,
+                        "nodes": [{
+                            "createdAt": "2017-04-13T14:09:24Z",
+                            "author": {
+                                "login": "rafaeljesus"
+                            }
+                        }, {
+                            "createdAt": "2017-04-13T14:10:58Z",
+                            "author": {
+                                "login": "vgarvardt"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjM5",
+                "node": {
+                    "number": 127,
+                    "createdAt": "2017-04-12T09:46:53Z",
+                    "mergedAt": "2017-04-12T10:40:37Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "kieranajp"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 2,
+                        "nodes": [{
+                            "createdAt": "2017-04-12T10:40:21Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }, {
+                            "createdAt": "2017-04-12T10:40:26Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjQw",
+                "node": {
+                    "number": 125,
+                    "createdAt": "2017-04-11T09:41:16Z",
+                    "mergedAt": "2017-04-11T09:56:59Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "italolelis"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-04-11T09:56:47Z",
+                            "author": {
+                                "login": "vgarvardt"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjQx",
+                "node": {
+                    "number": 124,
+                    "createdAt": "2017-04-11T09:00:07Z",
+                    "mergedAt": "2017-04-11T10:22:33Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 5,
+                        "nodes": [{
+                            "createdAt": "2017-04-11T09:01:44Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }, {
+                            "createdAt": "2017-04-11T09:13:12Z",
+                            "author": {
+                                "login": "vgarvardt"
+                            }
+                        }, {
+                            "createdAt": "2017-04-11T09:17:20Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }, {
+                            "createdAt": "2017-04-11T09:58:17Z",
+                            "author": {
+                                "login": "vgarvardt"
+                            }
+                        }, {
+                            "createdAt": "2017-04-11T10:08:31Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjQy",
+                "node": {
+                    "number": 123,
+                    "createdAt": "2017-04-10T17:06:32Z",
+                    "mergedAt": "2017-04-11T08:59:36Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 2
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-04-11T08:51:27Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjQz",
+                "node": {
+                    "number": 120,
+                    "createdAt": "2017-04-05T00:06:34Z",
+                    "mergedAt": "2017-04-07T14:04:34Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "italolelis"
+                    },
+                    "commits": {
+                        "totalCount": 63
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-04-07T14:04:12Z",
+                            "author": {
+                                "login": "vgarvardt"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjQ0",
+                "node": {
+                    "number": 118,
+                    "createdAt": "2017-03-29T16:59:55Z",
+                    "mergedAt": "2017-03-30T13:16:41Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "italolelis"
+                    },
+                    "commits": {
+                        "totalCount": 31
+                    },
+                    "comments": {
+                        "totalCount": 5,
+                        "nodes": [{
+                            "createdAt": "2017-03-29T17:04:02Z",
+                            "author": {
+                                "login": "coveralls"
+                            }
+                        }, {
+                            "createdAt": "2017-03-29T17:09:40Z",
+                            "author": {
+                                "login": "coveralls"
+                            }
+                        }, {
+                            "createdAt": "2017-03-29T17:09:40Z",
+                            "author": {
+                                "login": "coveralls"
+                            }
+                        }, {
+                            "createdAt": "2017-03-30T13:05:39Z",
+                            "author": {
+                                "login": "vgarvardt"
+                            }
+                        }, {
+                            "createdAt": "2017-03-30T13:06:25Z",
+                            "author": {
+                                "login": "coveralls"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjQ1",
+                "node": {
+                    "number": 117,
+                    "createdAt": "2017-03-23T16:14:15Z",
+                    "mergedAt": null,
+                    "state": "CLOSED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 2,
+                        "nodes": [{
+                            "createdAt": "2017-03-23T22:36:55Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }, {
+                            "createdAt": "2017-03-24T11:07:41Z",
+                            "author": {
+                                "login": "vgarvardt"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjQ2",
+                "node": {
+                    "number": 116,
+                    "createdAt": "2017-03-23T14:31:11Z",
+                    "mergedAt": "2017-03-23T14:43:08Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "italolelis"
+                    },
+                    "commits": {
+                        "totalCount": 2
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-03-23T14:41:30Z",
+                            "author": {
+                                "login": "vgarvardt"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjQ3",
+                "node": {
+                    "number": 115,
+                    "createdAt": "2017-03-22T13:11:04Z",
+                    "mergedAt": "2017-03-22T14:24:36Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "italolelis"
+                    },
+                    "commits": {
+                        "totalCount": 8
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-03-22T14:22:19Z",
+                            "author": {
+                                "login": "vgarvardt"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjQ4",
+                "node": {
+                    "number": 114,
+                    "createdAt": "2017-03-22T12:05:11Z",
+                    "mergedAt": "2017-03-22T13:00:04Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-03-22T12:59:52Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjQ5",
+                "node": {
+                    "number": 112,
+                    "createdAt": "2017-03-21T12:26:53Z",
+                    "mergedAt": "2017-03-21T13:51:19Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "italolelis"
+                    },
+                    "commits": {
+                        "totalCount": 9
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-03-21T13:45:02Z",
+                            "author": {
+                                "login": "vgarvardt"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjUw",
+                "node": {
+                    "number": 111,
+                    "createdAt": "2017-03-21T09:48:45Z",
+                    "mergedAt": "2017-03-21T09:53:44Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-03-21T09:53:32Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjUx",
+                "node": {
+                    "number": 109,
+                    "createdAt": "2017-03-20T13:22:26Z",
+                    "mergedAt": "2017-03-20T15:32:31Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "italolelis"
+                    },
+                    "commits": {
+                        "totalCount": 18
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-03-20T15:32:17Z",
+                            "author": {
+                                "login": "vgarvardt"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjUy",
+                "node": {
+                    "number": 108,
+                    "createdAt": "2017-03-20T10:55:41Z",
+                    "mergedAt": "2017-03-20T11:05:18Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-03-20T11:05:02Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjUz",
+                "node": {
+                    "number": 107,
+                    "createdAt": "2017-03-20T10:42:55Z",
+                    "mergedAt": "2017-03-20T10:48:39Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "italolelis"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-03-20T10:48:24Z",
+                            "author": {
+                                "login": "vgarvardt"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjU0",
+                "node": {
+                    "number": 103,
+                    "createdAt": "2017-03-17T15:54:06Z",
+                    "mergedAt": "2017-03-20T16:47:56Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 2
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-03-20T16:08:52Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjU1",
+                "node": {
+                    "number": 101,
+                    "createdAt": "2017-03-13T22:24:11Z",
+                    "mergedAt": "2017-03-15T13:16:19Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "italolelis"
+                    },
+                    "commits": {
+                        "totalCount": 47
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-03-15T13:16:02Z",
+                            "author": {
+                                "login": "vgarvardt"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjU2",
+                "node": {
+                    "number": 94,
+                    "createdAt": "2017-03-01T23:06:10Z",
+                    "mergedAt": "2017-03-02T09:39:44Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "italolelis"
+                    },
+                    "commits": {
+                        "totalCount": 6
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-03-02T09:39:38Z",
+                            "author": {
+                                "login": "kieranajp"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjU3",
+                "node": {
+                    "number": 93,
+                    "createdAt": "2017-03-01T22:07:12Z",
+                    "mergedAt": "2017-03-01T22:11:47Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "italolelis"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 0,
+                        "nodes": []
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjU4",
+                "node": {
+                    "number": 92,
+                    "createdAt": "2017-03-01T21:39:25Z",
+                    "mergedAt": "2017-03-02T09:34:13Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "italolelis"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-03-02T09:34:06Z",
+                            "author": {
+                                "login": "kieranajp"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjU5",
+                "node": {
+                    "number": 90,
+                    "createdAt": "2017-03-01T12:02:12Z",
+                    "mergedAt": "2017-03-03T15:04:02Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "italolelis"
+                    },
+                    "commits": {
+                        "totalCount": 32
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-03-03T15:03:51Z",
+                            "author": {
+                                "login": "vgarvardt"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjYw",
+                "node": {
+                    "number": 89,
+                    "createdAt": "2017-02-28T11:26:52Z",
+                    "mergedAt": "2017-03-17T13:44:39Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-03-17T13:44:14Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjYx",
+                "node": {
+                    "number": 87,
+                    "createdAt": "2017-02-27T16:44:41Z",
+                    "mergedAt": "2017-02-27T17:25:34Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-02-27T17:24:56Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjYy",
+                "node": {
+                    "number": 85,
+                    "createdAt": "2017-02-26T16:04:05Z",
+                    "mergedAt": "2017-02-27T09:49:03Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "italolelis"
+                    },
+                    "commits": {
+                        "totalCount": 9
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-02-27T09:48:47Z",
+                            "author": {
+                                "login": "vgarvardt"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjYz",
+                "node": {
+                    "number": 82,
+                    "createdAt": "2017-02-22T12:37:22Z",
+                    "mergedAt": "2017-02-26T15:21:10Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 2,
+                        "nodes": [{
+                            "createdAt": "2017-02-26T15:20:54Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }, {
+                            "createdAt": "2017-02-26T15:20:57Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjY0",
+                "node": {
+                    "number": 81,
+                    "createdAt": "2017-02-22T11:16:29Z",
+                    "mergedAt": "2017-02-22T11:34:01Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 4,
+                        "nodes": [{
+                            "createdAt": "2017-02-22T11:33:30Z",
+                            "author": {
+                                "login": "kieranajp"
+                            }
+                        }, {
+                            "createdAt": "2017-02-22T12:04:35Z",
+                            "author": {
+                                "login": "vgarvardt"
+                            }
+                        }, {
+                            "createdAt": "2017-02-22T12:06:13Z",
+                            "author": {
+                                "login": "kieranajp"
+                            }
+                        }, {
+                            "createdAt": "2017-02-22T12:07:20Z",
+                            "author": {
+                                "login": "vgarvardt"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjY1",
+                "node": {
+                    "number": 77,
+                    "createdAt": "2017-02-16T16:10:10Z",
+                    "mergedAt": null,
+                    "state": "CLOSED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 4
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-02-27T14:21:50Z",
+                            "author": {
+                                "login": "vgarvardt"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjY2",
+                "node": {
+                    "number": 76,
+                    "createdAt": "2017-02-10T11:40:16Z",
+                    "mergedAt": "2017-02-10T12:01:20Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-02-10T12:01:14Z",
+                            "author": {
+                                "login": "kieranajp"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjY3",
+                "node": {
+                    "number": 75,
+                    "createdAt": "2017-02-09T21:55:35Z",
+                    "mergedAt": "2017-02-10T06:30:42Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "italolelis"
+                    },
+                    "commits": {
+                        "totalCount": 3
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-02-10T06:30:21Z",
+                            "author": {
+                                "login": "kieranajp"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjY4",
+                "node": {
+                    "number": 74,
+                    "createdAt": "2017-02-09T16:40:36Z",
+                    "mergedAt": "2017-02-09T16:48:57Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-02-09T16:48:27Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjY5",
+                "node": {
+                    "number": 73,
+                    "createdAt": "2017-02-09T15:17:48Z",
+                    "mergedAt": null,
+                    "state": "CLOSED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-02-09T16:26:37Z",
+                            "author": {
+                                "login": "vgarvardt"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjcw",
+                "node": {
+                    "number": 72,
+                    "createdAt": "2017-02-08T11:46:09Z",
+                    "mergedAt": "2017-02-08T11:48:22Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-02-08T11:47:01Z",
+                            "author": {
+                                "login": "kieranajp"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjcx",
+                "node": {
+                    "number": 71,
+                    "createdAt": "2017-02-07T13:48:33Z",
+                    "mergedAt": "2017-03-17T14:26:31Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 2
+                    },
+                    "comments": {
+                        "totalCount": 2,
+                        "nodes": [{
+                            "createdAt": "2017-02-27T10:01:24Z",
+                            "author": {
+                                "login": "vgarvardt"
+                            }
+                        }, {
+                            "createdAt": "2017-03-17T14:18:39Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjcy",
+                "node": {
+                    "number": 70,
+                    "createdAt": "2017-02-06T15:00:16Z",
+                    "mergedAt": "2017-02-06T15:00:54Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "italolelis"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 2,
+                        "nodes": [{
+                            "createdAt": "2017-02-06T15:00:33Z",
+                            "author": {
+                                "login": "kieranajp"
+                            }
+                        }, {
+                            "createdAt": "2017-02-06T15:00:34Z",
+                            "author": {
+                                "login": "kieranajp"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjcz",
+                "node": {
+                    "number": 69,
+                    "createdAt": "2017-02-06T13:26:00Z",
+                    "mergedAt": "2017-02-06T13:28:08Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "italolelis"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-02-06T13:26:34Z",
+                            "author": {
+                                "login": "kieranajp"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjc0",
+                "node": {
+                    "number": 68,
+                    "createdAt": "2017-02-06T11:57:54Z",
+                    "mergedAt": "2017-02-06T12:05:59Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-02-06T12:05:52Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjc1",
+                "node": {
+                    "number": 67,
+                    "createdAt": "2017-02-06T10:45:03Z",
+                    "mergedAt": "2017-02-06T10:50:27Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "italolelis"
+                    },
+                    "commits": {
+                        "totalCount": 2
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-02-06T10:50:21Z",
+                            "author": {
+                                "login": "kieranajp"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjc2",
+                "node": {
+                    "number": 66,
+                    "createdAt": "2017-02-06T09:13:37Z",
+                    "mergedAt": "2017-02-06T10:57:15Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-02-06T10:57:09Z",
+                            "author": {
+                                "login": "kieranajp"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjc3",
+                "node": {
+                    "number": 65,
+                    "createdAt": "2017-02-02T23:26:06Z",
+                    "mergedAt": "2017-02-03T09:47:17Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "italolelis"
+                    },
+                    "commits": {
+                        "totalCount": 5
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-02-03T09:44:07Z",
+                            "author": {
+                                "login": "kieranajp"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjc4",
+                "node": {
+                    "number": 64,
+                    "createdAt": "2017-02-01T21:44:57Z",
+                    "mergedAt": "2017-02-02T23:27:37Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "italolelis"
+                    },
+                    "commits": {
+                        "totalCount": 4
+                    },
+                    "comments": {
+                        "totalCount": 0,
+                        "nodes": []
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjc5",
+                "node": {
+                    "number": 63,
+                    "createdAt": "2017-02-01T14:45:33Z",
+                    "mergedAt": "2017-02-01T15:13:07Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-02-01T15:12:55Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjgw",
+                "node": {
+                    "number": 62,
+                    "createdAt": "2017-01-31T18:13:45Z",
+                    "mergedAt": "2017-01-31T20:49:25Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "italolelis"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-01-31T20:49:10Z",
+                            "author": {
+                                "login": "vgarvardt"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjgx",
+                "node": {
+                    "number": 61,
+                    "createdAt": "2017-01-31T17:25:19Z",
+                    "mergedAt": "2017-01-31T17:30:04Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-01-31T17:26:13Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjgy",
+                "node": {
+                    "number": 60,
+                    "createdAt": "2017-01-31T10:45:40Z",
+                    "mergedAt": "2017-01-31T11:21:21Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-01-31T11:21:09Z",
+                            "author": {
+                                "login": "kieranajp"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjgz",
+                "node": {
+                    "number": 57,
+                    "createdAt": "2017-01-30T15:13:03Z",
+                    "mergedAt": "2017-01-30T17:00:07Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-01-30T17:00:00Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjg0",
+                "node": {
+                    "number": 56,
+                    "createdAt": "2017-01-27T14:54:55Z",
+                    "mergedAt": "2017-01-27T14:57:04Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "italolelis"
+                    },
+                    "commits": {
+                        "totalCount": 3
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-01-27T14:56:43Z",
+                            "author": {
+                                "login": "endeveit"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjg1",
+                "node": {
+                    "number": 55,
+                    "createdAt": "2017-01-27T12:35:07Z",
+                    "mergedAt": "2017-01-27T13:16:57Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-01-27T13:16:49Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjg2",
+                "node": {
+                    "number": 54,
+                    "createdAt": "2017-01-26T16:08:35Z",
+                    "mergedAt": "2017-01-26T16:50:47Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-01-26T16:50:05Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjg3",
+                "node": {
+                    "number": 53,
+                    "createdAt": "2017-01-26T15:02:57Z",
+                    "mergedAt": "2017-01-26T15:04:41Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "kieranajp"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-01-26T15:04:33Z",
+                            "author": {
+                                "login": "zeelax"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjg4",
+                "node": {
+                    "number": 52,
+                    "createdAt": "2017-01-26T14:24:42Z",
+                    "mergedAt": "2017-01-26T14:53:56Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 2,
+                        "nodes": [{
+                            "createdAt": "2017-01-26T14:50:00Z",
+                            "author": {
+                                "login": "endeveit"
+                            }
+                        }, {
+                            "createdAt": "2017-01-26T14:53:47Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjg5",
+                "node": {
+                    "number": 51,
+                    "createdAt": "2017-01-26T12:11:35Z",
+                    "mergedAt": "2017-01-26T12:14:57Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "italolelis"
+                    },
+                    "commits": {
+                        "totalCount": 3
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-01-26T12:14:39Z",
+                            "author": {
+                                "login": "kieranajp"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjkw",
+                "node": {
+                    "number": 50,
+                    "createdAt": "2017-01-26T09:43:32Z",
+                    "mergedAt": "2017-01-26T10:42:35Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 2,
+                        "nodes": [{
+                            "createdAt": "2017-01-26T09:51:33Z",
+                            "author": {
+                                "login": "endeveit"
+                            }
+                        }, {
+                            "createdAt": "2017-01-26T10:42:27Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjkx",
+                "node": {
+                    "number": 49,
+                    "createdAt": "2017-01-23T14:45:57Z",
+                    "mergedAt": "2017-01-23T16:02:16Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "italolelis"
+                    },
+                    "commits": {
+                        "totalCount": 7
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-01-23T16:02:00Z",
+                            "author": {
+                                "login": "kieranajp"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjky",
+                "node": {
+                    "number": 48,
+                    "createdAt": "2017-01-23T13:47:13Z",
+                    "mergedAt": "2017-01-23T14:40:35Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-01-23T14:40:19Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjkz",
+                "node": {
+                    "number": 47,
+                    "createdAt": "2017-01-23T10:49:12Z",
+                    "mergedAt": "2017-01-23T10:54:54Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "kieranajp"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-01-23T10:53:24Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjk0",
+                "node": {
+                    "number": 46,
+                    "createdAt": "2017-01-16T18:06:35Z",
+                    "mergedAt": "2017-01-17T09:31:28Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "vgarvardt"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-01-17T09:31:12Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjk1",
+                "node": {
+                    "number": 44,
+                    "createdAt": "2017-01-10T15:29:19Z",
+                    "mergedAt": "2017-01-10T15:30:58Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "italolelis"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-01-10T15:30:17Z",
+                            "author": {
+                                "login": "robertke"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjk2",
+                "node": {
+                    "number": 43,
+                    "createdAt": "2017-01-10T11:48:45Z",
+                    "mergedAt": "2017-01-10T12:00:33Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "italolelis"
+                    },
+                    "commits": {
+                        "totalCount": 12
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-01-10T12:00:17Z",
+                            "author": {
+                                "login": "kieranajp"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjk3",
+                "node": {
+                    "number": 42,
+                    "createdAt": "2017-01-03T17:48:17Z",
+                    "mergedAt": "2017-01-04T09:22:10Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "italolelis"
+                    },
+                    "commits": {
+                        "totalCount": 9
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-01-04T08:00:34Z",
+                            "author": {
+                                "login": "bastiankoetsier"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjk4",
+                "node": {
+                    "number": 41,
+                    "createdAt": "2017-01-02T22:31:28Z",
+                    "mergedAt": "2017-01-03T11:50:19Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "italolelis"
+                    },
+                    "commits": {
+                        "totalCount": 3
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-01-03T11:46:18Z",
+                            "author": {
+                                "login": "bastiankoetsier"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjk5",
+                "node": {
+                    "number": 40,
+                    "createdAt": "2017-01-02T09:18:42Z",
+                    "mergedAt": "2017-01-02T09:49:13Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "bastiankoetsier"
+                    },
+                    "commits": {
+                        "totalCount": 1
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2017-01-02T09:49:06Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }]
+                    }
+                }
+            }, {
+                "cursor": "Y3Vyc29yOjEwMA==",
+                "node": {
+                    "number": 39,
+                    "createdAt": "2016-12-29T08:48:52Z",
+                    "mergedAt": "2016-12-29T14:41:12Z",
+                    "state": "MERGED",
+                    "author": {
+                        "login": "bastiankoetsier"
+                    },
+                    "commits": {
+                        "totalCount": 2
+                    },
+                    "comments": {
+                        "totalCount": 1,
+                        "nodes": [{
+                            "createdAt": "2016-12-29T14:40:53Z",
+                            "author": {
+                                "login": "italolelis"
+                            }
+                        }]
+                    }
+                }
+            }]
+        }
+    }
+}

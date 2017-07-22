@@ -6,17 +6,13 @@ import compact from 'lodash/compact';
 import uniq from 'lodash/uniq';
 import isDate from 'lodash/isDate';
 
-export const getPullRequestsStatistics = (pullRequests) => {
-    const result = {
-        total: getStats(pullRequests),
-        slices: {
-            user: getUserSliceStats(pullRequests),
-            day: getDaySliceStats(pullRequests),
-        },
-    };
-
-    return result;
-};
+export const getPullRequestsStatistics = (pullRequests) => ({
+    total: getStats(pullRequests),
+    slices: {
+        user: getUserSliceStats(pullRequests),
+        day: getDaySliceStats(pullRequests),
+    },
+});
 
 const getStats = prs => ({
     pullRequest: getPullRequestStats(prs),
@@ -36,14 +32,12 @@ const getTotalCommits = prs => sum(prs.map(pr => pr.totalCommits));
 
 const getDaySliceStats = prs => [0, 1, 2, 3, 4, 5, 6].map(day => getDayStats(day)(prs));
 
-const getPullRequestStats = prs => prs.reduce((result, pr) => {
-    return Object.assign(result, {
-        total: (result.total || 0) + 1,
-        open: (result.open || 0) + (pr.state === 'OPEN' ? 1 : 0),
-        closed: (result.closed || 0) + (pr.state === 'CLOSED' ? 1 : 0),
-        merged: (result.merged || 0) + (pr.state === 'MERGED' ? 1 : 0),
-    })
-}, {});
+const getPullRequestStats = prs => prs.reduce((result, pr) => Object.assign(result, {
+    total: (result.total || 0) + 1,
+    open: (result.open || 0) + (pr.state === 'OPEN' ? 1 : 0),
+    closed: (result.closed || 0) + (pr.state === 'CLOSED' ? 1 : 0),
+    merged: (result.merged || 0) + (pr.state === 'MERGED' ? 1 : 0),
+}), {});
 
 const mergedFilter = prs => prs.filter(pr => pr.state === 'MERGED');
 

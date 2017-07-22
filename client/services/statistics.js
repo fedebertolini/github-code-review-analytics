@@ -60,12 +60,10 @@ const timeToFirstCommentMap = prs => prs.map(pr => {
     if (!firstComment) {
         return null;
     }
-    return round(getDateDiff(pr.createdAt, firstComment.createdAt) / 3600000, 2);
+    return getDateHoursDiff(pr.createdAt, firstComment.createdAt);
 });
 
-const timeToMergeMap = prs => prs.map(pr => {
-    return round(getDateDiff(pr.createdAt, pr.mergedAt) / 3600000, 2);
-});
+const timeToMergeMap = prs => prs.map(pr => getDateHoursDiff(pr.createdAt, pr.mergedAt));
 
 const getValueListStats = (values) => {
     const meanValue = mean(values);
@@ -82,10 +80,11 @@ const deviation = (values, meanValue) => {
     return sum(diff) / diff.length;
 };
 
-const getDateDiff = (d1, d2) => {
+const getDateHoursDiff = (d1, d2) => {
     const date1 = isDate(d1) ? d1 : new Date(d1);
     const date2 = isDate(d2) ? d2 : new Date(d2);
-    return Math.abs(date1.getTime() - date2.getTime());
+    const diff = Math.abs(date1.getTime() - date2.getTime());
+    return round(diff / 3600000, 2);
 }
 
 const roundValues = values => values.map(value => round(value, 2));

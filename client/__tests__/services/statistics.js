@@ -16,13 +16,13 @@ describe('statistics service', () => {
     it('should return the total time to merge statistics', () => {
         expect(stats.total.timeToMerge.values.length).toBe(stats.total.pullRequest.merged);
         expect(stats.total.timeToMerge.mean).toBeGreaterThan(0);
-        expect(stats.total.timeToMerge.deviation).toBeGreaterThan(0);
+        expect(stats.total.timeToMerge.standardDeviation).toBeGreaterThan(0);
     });
 
     it('should return the total time to first comment statistics', () => {
         expect(stats.total.timeToFirstComment.values.length).toBeGreaterThan(0);
         expect(stats.total.timeToFirstComment.mean).toBeGreaterThan(0);
-        expect(stats.total.timeToFirstComment.deviation).toBeGreaterThan(0);
+        expect(stats.total.timeToFirstComment.standardDeviation).toBeGreaterThan(0);
     });
 
     it('should return the pull request statistics sliced by user', () => {

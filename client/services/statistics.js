@@ -61,17 +61,17 @@ const timeToMergeMap = prs => prs.map(pr => getDateHoursDiff(pr.createdAt, pr.me
 
 const getValueListStats = (values) => {
     const meanValue = mean(values);
-    const deviationValue = deviation(values, meanValue);
+    const deviationValue = standardDeviation(values, meanValue);
     return {
         values: roundValues(values),
         mean: round(meanValue, 2),
-        deviation: round(deviationValue, 2),
+        standardDeviation: round(deviationValue, 2),
     };
 };
 
-const deviation = (values, meanValue) => {
-    const diff = values.map(v => Math.abs(v - meanValue));
-    return sum(diff) / diff.length;
+const standardDeviation = (values, meanValue) => {
+    const diff = values.map(v => Math.pow(v - meanValue, 2));
+    return Math.sqrt(sum(diff) / diff.length);
 };
 
 const roundValues = values => values.map(value => round(value, 2));

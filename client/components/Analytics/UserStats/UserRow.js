@@ -13,10 +13,14 @@ const UserRow = ({ statistics }) => (
         <Table.Cell>{statistics.pullRequest.total}</Table.Cell>
         <Table.Cell>{statistics.pullRequest.merged}</Table.Cell>
         <Table.Cell>{statistics.totalCommits}</Table.Cell>
-        <Table.Cell>{round(statistics.totalCommits / statistics.pullRequest.total, 1)}</Table.Cell>
-        <Table.Cell>{statistics.timeToMerge.mean} ({statistics.timeToMerge.deviation})</Table.Cell>
         <Table.Cell>
-            {statistics.timeToFirstComment.mean} ({statistics.timeToFirstComment.deviation})
+            {round(statistics.totalCommits / statistics.pullRequest.total, 1)}
+        </Table.Cell>
+        <Table.Cell>
+            {statistics.timeToMerge.mean} ({statistics.timeToMerge.standardDeviation})
+        </Table.Cell>
+        <Table.Cell>
+            {statistics.timeToFirstComment.mean} ({statistics.timeToFirstComment.standardDeviation})
         </Table.Cell>
     </Table.Row>
 );

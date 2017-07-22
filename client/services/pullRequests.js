@@ -8,11 +8,22 @@ export const getRepositoriesPullRequests = (organization, repositories, filters 
 export const getRepositoryPullRequests = async (organization, repository, filters = {}) => {
     const searchQuery = buildQueryParameter(organization, repository, filters);
 
-    const graphQLQuery = pullRequestGraphQLQuery(searchQuery, 100, 0);
+    let pullRequests = [];
+    let allPRsFetched = false;
+    let endCursor = null;
 
-    const result = await authorizedGraphQL('/graphql', { query: graphQLQuery });
+    while (!allPRsFetched) {
+        const graphQLQuery = pullRequestGraphQLQuery(searchQuery, 100, endCursor);
+        const result = await authorizedGraphQL('/graphql', { query: graphQLQuery });
+        if (result.data.errors) {
+            throw new Error(result.data.errors);
+        }
+        pullRequests = pullRequests.concat(mapGraphQLResult(result.data));
+        endCursor = result.data.data.search.pageInfo.endCursor;
+        allPRsFetched = pullRequests.length >= result.data.data.search.issueCount;
+    }
 
-    return mapGraphQLResult(result.data);
+    return pullRequests;
 };
 
 const buildQueryParameter = (organization, repository, filters = {}) => {

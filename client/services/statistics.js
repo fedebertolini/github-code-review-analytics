@@ -4,6 +4,7 @@ import round from 'lodash/round';
 import flow from 'lodash/flow';
 import compact from 'lodash/compact';
 import uniq from 'lodash/uniq';
+import isDate from 'lodash/isDate';
 
 export const getPullRequestsStatistics = (pullRequests) => {
     const result = {
@@ -59,17 +60,11 @@ const timeToFirstCommentMap = prs => prs.map(pr => {
     if (!firstComment) {
         return null;
     }
-    const prCreatedDate = new Date(pr.createdAt);
-    const firstCommentDate = new Date(firstComment.createdAt);
-    const milliseconds = firstCommentDate.getTime() - prCreatedDate.getTime();
-    return round(milliseconds / 3600000, 2);
+    return round(getDateDiff(pr.createdAt, firstComment.createdAt) / 3600000, 2);
 });
 
 const timeToMergeMap = prs => prs.map(pr => {
-    const createdDate = new Date(pr.createdAt);
-    const mergedDate = new Date(pr.mergedAt);
-    const milliseconds = mergedDate.getTime() - createdDate.getTime();
-    return round(milliseconds / 3600000, 2);
+    return round(getDateDiff(pr.createdAt, pr.mergedAt) / 3600000, 2);
 });
 
 const getValueListStats = (values) => {
@@ -86,6 +81,12 @@ const deviation = (values, meanValue) => {
     const diff = values.map(v => Math.abs(v - meanValue));
     return sum(diff) / diff.length;
 };
+
+const getDateDiff = (d1, d2) => {
+    const date1 = isDate(d1) ? d1 : new Date(d1);
+    const date2 = isDate(d2) ? d2 : new Date(d2);
+    return Math.abs(date1.getTime() - date2.getTime());
+}
 
 const roundValues = values => values.map(value => round(value, 2));
 

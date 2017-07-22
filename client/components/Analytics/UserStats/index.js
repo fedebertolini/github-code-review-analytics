@@ -14,8 +14,11 @@ const UserStats = ({stats, users}) => {
                     <Table.Row>
                         <Table.HeaderCell>User</Table.HeaderCell>
                         <Table.HeaderCell>PRs Created</Table.HeaderCell>
+                        <Table.HeaderCell>PRs Merged</Table.HeaderCell>
                         <Table.HeaderCell>Commits</Table.HeaderCell>
                         <Table.HeaderCell>Commits / PR</Table.HeaderCell>
+                        <Table.HeaderCell>Time to merge</Table.HeaderCell>
+                        <Table.HeaderCell>Time to first comment</Table.HeaderCell>
                     </Table.Row>
                 </Table.Header>
                 <Table.Body>
@@ -36,7 +39,7 @@ const sortUserList = (stats, users) => {
         }
         return userStats;
     }, []);
-    return reverse(sortBy(list, 'pullRequestsCreated'));
+    return reverse(sortBy(list, 'pullRequest.total'));
 };
 
 export default UserStats;

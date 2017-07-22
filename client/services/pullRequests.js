@@ -23,6 +23,10 @@ export const getRepositoryPullRequests = async (organization, repository, filter
         allPRsFetched = pullRequests.length >= result.data.data.search.issueCount;
     }
 
+    pullRequests.forEach(pr => {
+        pr.repository = repository;
+    });
+
     return pullRequests;
 };
 

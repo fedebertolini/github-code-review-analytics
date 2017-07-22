@@ -7,19 +7,16 @@ const UserRow = ({ statistics }) => (
         <Table.Cell>
             <Header as='h4' image>
                 <Image src={statistics.user.avatar_url} shape='rounded' size='mini' />
-                <Header.Content>
-                    {statistics.user.login}
-                </Header.Content>
+                <Header.Content>{statistics.user.login}</Header.Content>
             </Header>
         </Table.Cell>
+        <Table.Cell>{statistics.pullRequest.total}</Table.Cell>
+        <Table.Cell>{statistics.pullRequest.merged}</Table.Cell>
+        <Table.Cell>{statistics.totalCommits}</Table.Cell>
+        <Table.Cell>{round(statistics.totalCommits / statistics.pullRequest.total, 1)}</Table.Cell>
+        <Table.Cell>{statistics.timeToMerge.mean} ({statistics.timeToMerge.deviation})</Table.Cell>
         <Table.Cell>
-            {statistics.pullRequestsCreated}
-        </Table.Cell>
-        <Table.Cell>
-            {statistics.totalCommits}
-        </Table.Cell>
-        <Table.Cell>
-            {round(statistics.totalCommits / statistics.pullRequestsCreated, 1)}
+            {statistics.timeToFirstComment.mean} ({statistics.timeToFirstComment.deviation})
         </Table.Cell>
     </Table.Row>
 );

@@ -1,87 +1,84 @@
 import mean from 'lodash/mean';
 import sum from 'lodash/sum';
 import round from 'lodash/round';
-import flatten from 'lodash/flatten';
+import flow from 'lodash/flow';
+import compact from 'lodash/compact';
+import uniq from 'lodash/uniq';
 
 export const getPullRequestsStatistics = (pullRequests) => {
     const result = {
-        users: {},
-        state: {
-            openCount: 0,
-            closedCount: 0,
-            mergedCount: 0,
-            total: 0
+        total: getStats(pullRequests),
+        slices: {
+            user: getUserSliceStats(pullRequests),
+            day: getDaySliceStats(pullRequests),
         },
-    };
-
-    const timesToMergeByDay = [[], [], [], [], [], [], []];
-
-    pullRequests.forEach(pr => {
-        incrementUserCreatedPR(result.users, pr);
-        incrementState(result.state, pr);
-
-        if (pr.merged) {
-            var dateCreated = new Date(pr.createdAt);
-            timesToMergeByDay[dateCreated.getDay()].push(getTimeToMerge(pr));
-        }
-    });
-
-    result.timeToMerge = {
-        total: calculateTimeToMergeStats(flatten(timesToMergeByDay)),
-        byDay: [0, 1, 2, 3, 4, 5, 6].map(day => {
-            return calculateTimeToMergeStats(timesToMergeByDay[day]);
-        }),
     };
 
     return result;
 };
 
-const incrementUserCreatedPR = (userStates, pr) => {
-    if (userStates[pr.author]) {
-        userStates[pr.author].pullRequestsCreated++;
-        userStates[pr.author].totalCommits += pr.totalCommits;
-    } else {
-        userStates[pr.author] = {
-            pullRequestsCreated: 1,
-            totalCommits: pr.totalCommits,
-        };
-    }
+const getStats = prs => ({
+    pullRequest: getPullRequestStats(prs),
+    timeToMerge: getTimeToMergeStats(prs),
+    timeToFirstComment: getTimeToFirstCommentStats(prs),
+    totalCommits: getTotalCommits(prs),
+});
+
+const getUserSliceStats = prs => {
+    const users = uniq(prs.map(pr => pr.author));
+    return users.reduce((usersStats, user) => Object.assign(usersStats, {
+        [user]: getUserStats(user)(prs),
+    }), {});
 };
 
-const incrementState = (state, pr) => {
-    state.total++;
-    if (pr.state === 'OPEN') {
-        state.openCount++;
-    } else if (pr.state === 'MERGED') {
-        state.mergedCount++;
-    } else if (pr.state === 'CLOSED') {
-        state.closedCount++;
-    } else {
-        console.log(`unknown status ${pr.state}`);
-    }
-};
+const getTotalCommits = prs => sum(prs.map(pr => pr.totalCommits));
 
-const getTimeToMerge = (pr) => {
-    if (pr.state === 'MERGED') {
-        const createdDate = new Date(pr.createdAt);
-        const mergedDate = new Date(pr.mergedAt);
-        const milliseconds = mergedDate.getTime() - createdDate.getTime();
-        return Math.floor(milliseconds / 1000);
-    }
-    return 0;
-};
+const getDaySliceStats = prs => [0, 1, 2, 3, 4, 5, 6].map(day => getDayStats(day)(prs));
 
-const calculateTimeToMergeStats = (secondsToMerge) => {
-    if (!secondsToMerge.length) {
-        return {};
-    }
-    const meanTime = mean(secondsToMerge);
-    const meanDeviation = deviation(secondsToMerge, meanTime);
+const getPullRequestStats = prs => prs.reduce((result, pr) => {
+    return Object.assign(result, {
+        total: (result.total || 0) + 1,
+        open: (result.open || 0) + (pr.state === 'OPEN' ? 1 : 0),
+        closed: (result.closed || 0) + (pr.state === 'CLOSED' ? 1 : 0),
+        merged: (result.merged || 0) + (pr.state === 'MERGED' ? 1 : 0),
+    })
+}, {});
 
+const mergedFilter = prs => prs.filter(pr => pr.state === 'MERGED');
+
+const userFilter = user => prs => prs.filter(pr => pr.author === user);
+const getUserStats = user => flow([userFilter(user), getStats]);
+
+const dayFilter = day => prs => prs.filter(pr => day === (new Date(pr.createdAt)).getDay());
+const getDayStats = day => flow([dayFilter(day), getStats]);
+
+const findFirstComment = pr => pr.comments.find(comment => comment.author !== pr.author);
+
+const timeToFirstCommentMap = prs => prs.map(pr => {
+    const firstComment = findFirstComment(pr);
+    if (!firstComment) {
+        return null;
+    }
+    const prCreatedDate = new Date(pr.createdAt);
+    const firstCommentDate = new Date(firstComment.createdAt);
+    const milliseconds = firstCommentDate.getTime() - prCreatedDate.getTime();
+    return round(milliseconds / 3600000, 2);
+});
+
+const timeToMergeMap = prs => prs.map(pr => {
+    const createdDate = new Date(pr.createdAt);
+    const mergedDate = new Date(pr.mergedAt);
+    const milliseconds = mergedDate.getTime() - createdDate.getTime();
+    return round(milliseconds / 3600000, 2);
+});
+
+const getValueListStats = (values) => {
+    const meanValue = mean(values);
+    const deviationValue = deviation(values, meanValue);
     return {
-        timesHours: secondsToMerge.map(v => round(v / 3600, 2)),
-        meanHours: round(meanTime / 3600, 2),
-        meanDeviationHours: round(meanDeviation / 3600, 2)
+        values: roundValues(values),
+        mean: round(meanValue, 2),
+        deviation: round(deviationValue, 2),
     };
 };
 
@@ -89,3 +86,8 @@ const deviation = (values, meanValue) => {
     const diff = values.map(v => Math.abs(v - meanValue));
     return sum(diff) / diff.length;
 };
+
+const roundValues = values => values.map(value => round(value, 2));
+
+const getTimeToMergeStats = flow([mergedFilter, timeToMergeMap, getValueListStats]);
+const getTimeToFirstCommentStats = flow([timeToFirstCommentMap, compact, getValueListStats]);

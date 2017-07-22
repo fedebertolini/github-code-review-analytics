@@ -31,7 +31,7 @@ class Analytics extends Component {
         }
         return (
             <div className="analytics_page-container">
-                <UserStats stats={stats.users} users={this.props.users} />
+                <UserStats stats={stats.slices.user} users={this.props.users} />
 
                 <div>
                     <code>{JSON.stringify(stats, null, 4)}</code>

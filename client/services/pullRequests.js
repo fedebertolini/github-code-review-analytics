@@ -67,7 +67,9 @@ const pullRequestGraphQLQuery = (searchQuery, first, after = null) =>
                 nodes {
                   createdAt
                   author {
-                    login
+                    ... on User {
+                      login
+                    }
                   }
                 }
               }
@@ -77,18 +79,23 @@ const pullRequestGraphQLQuery = (searchQuery, first, after = null) =>
     }
 }`;
 
+const filterUserComments = comments => comments.filter(comment => !!comment.author.login);
+
 export const mapGraphQLResult = (result) => {
-    return result.data.search.edges.map(edge => ({
-        author: edge.node.author.login,
-        number: edge.node.number,
-        createdAt: edge.node.createdAt,
-        mergedAt: edge.node.mergedAt,
-        state: edge.node.state,
-        totalCommits: edge.node.commits.totalCount,
-        totalComments: edge.node.comments.totalCount,
-        comments: edge.node.comments.nodes.map(comment => ({
-            createdAt: comment.createdAt,
-            author: comment.author.login,
-        }))
-    }));
+    return result.data.search.edges.map(edge => {
+        const comments = filterUserComments(edge.node.comments.nodes);
+        return {
+            author: edge.node.author.login,
+            number: edge.node.number,
+            createdAt: edge.node.createdAt,
+            mergedAt: edge.node.mergedAt,
+            state: edge.node.state,
+            totalCommits: edge.node.commits.totalCount,
+            totalComments: comments.length,
+            comments: comments.map(comment => ({
+                createdAt: comment.createdAt,
+                author: comment.author.login,
+            })),
+        };
+    });
 };

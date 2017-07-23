@@ -6,7 +6,7 @@ import { getPullRequestsStatistics } from '../../services/statistics';
 import UserStats from './UserStats';
 import './styles.css';
 
-class Analytics extends Component {
+class Dashboard extends Component {
 
     async componentWillMount() {
         this.state = {
@@ -30,7 +30,7 @@ class Analytics extends Component {
             return null;
         }
         return (
-            <div className="analytics_page-container">
+            <div className="dashboard_page-container">
                 <UserStats stats={stats.slices.user} users={this.props.users} />
 
                 <div>
@@ -41,4 +41,4 @@ class Analytics extends Component {
     };
 }
 
-export default Analytics;
+export default Dashboard;

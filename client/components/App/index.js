@@ -77,14 +77,14 @@ class App extends Component {
                 </div>
                 <Grid className="app_content-container">
                     <Grid.Row>
-                        <Grid.Column width={4} className="app_sidebar-container">
+                        <Grid.Column width={3} className="app_sidebar-container">
                             <SideBar
                                 organization={this.state.selectedOrganization}
                                 repositories={this.state.selectedRepositories}
                                 users={this.state.selectedUsers}
                             />
                         </Grid.Column>
-                        <Grid.Column width={12}>
+                        <Grid.Column width={13}>
                             {this.renderStep()}
                         </Grid.Column>
                     </Grid.Row>

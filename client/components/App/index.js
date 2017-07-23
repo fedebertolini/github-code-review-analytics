@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Grid } from 'semantic-ui-react';
 import Login from '../Login';
 import Wizard from '../Wizard';
@@ -6,37 +7,25 @@ import Dashboard from '../Dashboard';
 import AppHeader from '../AppHeader';
 import SideBar from '../SideBar';
 import { hasAccessToken, invalidateAccessToken } from '../../services/auth';
-import { getLoggedInUser } from '../../services/users';
+import { fetchLoggedInUser } from '../../store/actions/user';
+import { getLoggedInUser, getLoggedInUserError } from '../../store/selectors/user';
 import './styles.css';
 
 class App extends Component {
-    async componentWillMount() {
+    componentWillMount() {
         this.finishSelection = this.finishSelection.bind(this);
 
         this.state = {
             showLogin: !hasAccessToken(),
             showWizard: false,
             showDasboard: false,
-            user: null,
             selectedOrganization: null,
             selectedUsers: [],
             selectedRepositories: [],
         };
 
         if (hasAccessToken()) {
-            try {
-                const user = await getLoggedInUser();
-                this.setState({
-                    user,
-                    showWizard: true,
-                });
-            } catch(e) {
-                invalidateAccessToken();
-
-                this.setState({
-                    showLogin: true,
-                });
-            }
+            this.props.fetchLoggedInUser();
         }
     }
 
@@ -50,12 +39,27 @@ class App extends Component {
         });
     }
 
+    componentWillReceiveProps(nextProps) {
+        if (!this.props.loggedInUserError && nextProps.loggedInUserError) {
+            invalidateAccessToken();
+
+            this.setState({
+                showLogin: true,
+            });
+        }
+        if (!this.props.loggedInUser && nextProps.loggedInUser) {
+            this.setState({
+                showWizard: true,
+            });
+        }
+    }
+
     renderStep() {
         if (this.state.showLogin) {
             return <Login />;
         }
         if (this.state.showWizard) {
-            return <Wizard user={this.state.user} finishSelection={this.finishSelection} />
+            return <Wizard user={this.props.loggedInUser} finishSelection={this.finishSelection} />
         }
         if (this.state.showDasboard) {
             return (
@@ -94,4 +98,13 @@ class App extends Component {
     }
 }
 
-export default App;
+const mapStateToProps = state => ({
+    loggedInUser: getLoggedInUser(state),
+    loggedInUserError: getLoggedInUserError(state),
+});
+
+const mapDispatchToProps = {
+    fetchLoggedInUser,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

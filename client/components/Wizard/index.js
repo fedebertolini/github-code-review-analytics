@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Container, Grid } from 'semantic-ui-react';
-import Header from './Header';
 import Organizations from './Organizations';
 import Repositories from './Repositories';
 import Users from './Users';
@@ -48,13 +47,8 @@ class Wizard extends Component {
     render() {
         const userLogin = this.props.user.login;
         return (
-            <Grid>
-                <Grid.Row stretched className="wizard_header-container">
-                    <Grid.Column stretched>
-                        <Header currentStep={this.state.currentStep} />
-                    </Grid.Column>
-                </Grid.Row>
-                <Container className="wizard_step-container">
+            <Container className="wizard_step-container">
+                <Grid>
                     {this.state.currentStep === 0 && gridWrapper(
                         <Organizations
                             userLogin={userLogin}
@@ -74,8 +68,8 @@ class Wizard extends Component {
                             selectUsers={this.selectUsers}
                         />
                     )}
-                </Container>
-            </Grid>
+                </Grid>
+            </Container>
         )
     }
 }

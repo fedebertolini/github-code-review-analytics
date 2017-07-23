@@ -1,0 +1,12 @@
+.sidebar_item {
+    background-color: #E8E8E8;
+    padding: 18px 15px 15px 15px;
+    border-bottom: 1px solid rgba(34, 36, 38, .15);
+    position: relative;
+}
+
+.sidebar_subitem {
+    background-color: #F0F0F0;
+    padding: 10px 10px 10px 56px;
+    border-bottom: 1px solid rgba(34, 36, 38, .15);
+}

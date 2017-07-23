@@ -1,0 +1,22 @@
+.app_container {
+    height: 100%;
+}
+
+.app_content-container {
+    height: 100%;
+    background-color: #F8F8F8;
+}
+
+.app_header-container {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.app_sidebar-container {
+    background-color: #F0F0F0;
+    border-right: 1px solid rgba(34, 36, 38, .15);
+    padding-right: 0 !important;
+}

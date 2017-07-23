@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
+import { Grid } from 'semantic-ui-react';
 import Login from '../Login';
 import Wizard from '../Wizard';
 import Dashboard from '../Dashboard';
+import AppHeader from '../AppHeader';
+import SideBar from '../SideBar';
 import { hasAccessToken, invalidateAccessToken } from '../../services/auth';
 import { getLoggedInUser } from '../../services/users';
+import './styles.css';
 
 class App extends Component {
     async componentWillMount() {
@@ -46,7 +50,7 @@ class App extends Component {
         });
     }
 
-    render() {
+    renderStep() {
         if (this.state.showLogin) {
             return <Login />;
         }
@@ -63,6 +67,30 @@ class App extends Component {
             )
         }
         return null;
+    }
+
+    render() {
+        return (
+            <div className="app_container">
+                <div className="app_header-container">
+                    <AppHeader />
+                </div>
+                <Grid className="app_content-container">
+                    <Grid.Row>
+                        <Grid.Column width={4} className="app_sidebar-container">
+                            <SideBar
+                                organization={this.state.selectedOrganization}
+                                repositories={this.state.selectedRepositories}
+                                users={this.state.selectedUsers}
+                            />
+                        </Grid.Column>
+                        <Grid.Column width={12}>
+                            {this.renderStep()}
+                        </Grid.Column>
+                    </Grid.Row>
+                </Grid>
+            </div>
+        );
     }
 }
 

@@ -1,3 +1,4 @@
+import { fromJS } from 'immutable';
 import {
     LOGGED_IN_USER_LOAD,
     LOGGED_IN_USER_ERROR,
@@ -6,7 +7,7 @@ import {
     USER_UNSELECT
 } from '../constants';
 
-const defaultState = () => ({
+const defaultState = () => fromJS({
     loggedInUser: null,
     loggedInUserError: null,
     users: [],
@@ -16,26 +17,22 @@ const defaultState = () => ({
 export default (state = defaultState(), action) => {
     switch (action.type) {
         case LOGGED_IN_USER_LOAD:
-            return Object.assign({}, state, {
+            return state.merge({
                 loggedInUser: action.payload,
                 loggedInUserError: null,
             });
         case LOGGED_IN_USER_ERROR:
-            return Object.assign({}, state, {
-                loggedInUserError: action.payload,
-            });
+            return state.set('loggedInUserError', action.payload);
         case USERS_LOAD:
-            return Object.assign({}, state, {
-                users: action.payload,
-            });
-        case USER_SELECT:
-            return Object.assign({}, state, {
-                selectedUsers: state.selectedUsers.concat([action.payload]),
-            });
-        case USER_UNSELECT:
-            return Object.assign({}, state, {
-                selectedUsers: state.selectedUsers.filter(user => user.login !== action.payload),
-            });
+            return state.set('users', fromJS(action.payload));
+        case USER_SELECT: {
+            const selectedUsers = state.get('selectedUsers').push(fromJS(action.payload));
+            return state.set('selectedUsers', selectedUsers);
+        }
+        case USER_UNSELECT: {
+            const selectedUsers = state.get('selectedUsers').filter(user => user.get('login') !== action.payload);
+            return state.set('selectedUsers', selectedUsers);
+        }
         default:
             return state;
     }

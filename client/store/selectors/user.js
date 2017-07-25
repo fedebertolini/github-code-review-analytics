@@ -1,2 +1,2 @@
-export const getLoggedInUser = state => state.user.loggedInUser;
-export const getLoggedInUserError = state => state.user.loggedInUserError;
+export const getLoggedInUser = state => state.getIn(['user', 'loggedInUser']);
+export const getLoggedInUserError = state => state.getIn(['user', 'loggedInUserError']);

@@ -1,6 +1,7 @@
+import { fromJS } from 'immutable';
 import { ORGANIZATIONS_LOAD, ORGANIZATION_SELECT } from '../constants';
 
-const defaultState = () => ({
+const defaultState = () => fromJS({
     userOrganizations: [],
     selectedOrganization: null,
 });
@@ -8,13 +9,9 @@ const defaultState = () => ({
 export default (state = defaultState(), action) => {
     switch (action.type) {
         case ORGANIZATIONS_LOAD:
-            return Object.assign({}, state, {
-                userOrganizations: action.payload,
-            });
+            return state.set('userOrganizations', fromJS(action.payload))
         case ORGANIZATION_SELECT:
-            return Object.assign({}, state, {
-                selectedOrganization: action.payload,
-            });
+            return state.set('selectedOrganization', fromJS(action.payload))
         default:
             return state;
     }

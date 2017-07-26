@@ -27,44 +27,28 @@ describe('repository reducer', () => {
     it('should select repos', () => {
         const result = reducer(undefined, {
             type: REPOSITORY_SELECT,
-            payload: {
-                id: 1
-            },
+            payload: 'janus',
         });
 
-        expect(result.get('selectedRepositories').toJS()).toEqual([{
-            id: 1
-        }]);
+        expect(result.get('selectedRepositories').toJS()).toEqual(['janus']);
 
         const newState = reducer(result, {
             type: REPOSITORY_SELECT,
-            payload: {
-                id: 3,
-            },
+            payload: 'test-repo',
         });
 
-        expect(newState.get('selectedRepositories').toJS()).toEqual([{
-            id: 1
-        }, {
-            id: 3
-        }]);
+        expect(newState.get('selectedRepositories').toJS()).toEqual(['janus', 'test-repo']);
     });
 
     it('should unselect repos', () => {
         const previousState = fromJS({
-            selectedRepositories: [{
-                id: 1
-            }, {
-                id: 2
-            }],
+            selectedRepositories: ['janus', 'test-repo'],
         });
         const result = reducer(previousState, {
             type: REPOSITORY_UNSELECT,
-            payload: 1,
+            payload: 'test-repo',
         });
 
-        expect(result.get('selectedRepositories').toJS()).toEqual([{
-            id: 2
-        }]);
+        expect(result.get('selectedRepositories').toJS()).toEqual(['janus']);
     });
 });

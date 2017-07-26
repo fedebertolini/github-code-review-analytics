@@ -18,10 +18,7 @@ const gridWrapper = (step) => (
 
 class Wizard extends Component {
     componentWillMount() {
-        this.state = {
-            currentStep: 0,
-            repositories: [],
-        };
+        this.state = { currentStep: 0 };
 
         this.selectOrganization = this.selectOrganization.bind(this);
         this.selectRepositories = this.selectRepositories.bind(this);
@@ -35,15 +32,12 @@ class Wizard extends Component {
         });
     }
 
-    selectRepositories(repositories) {
-        this.setState({
-            currentStep: 2,
-            repositories,
-        });
+    selectRepositories() {
+        this.setState({ currentStep: 2 });
     }
 
     selectUsers(users) {
-        this.props.finishSelection(this.state.repositories, users);
+        this.props.finishSelection(users);
     }
 
     render() {
@@ -61,10 +55,7 @@ class Wizard extends Component {
                         <Repositories selectRepositories={this.selectRepositories} />
                     )}
                     {this.state.currentStep === 2 && gridWrapper(
-                        <Users
-                            repositories={this.state.repositories}
-                            selectUsers={this.selectUsers}
-                        />
+                        <Users selectUsers={this.selectUsers} />
                     )}
                 </Grid>
             </Container>

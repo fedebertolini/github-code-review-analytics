@@ -7,12 +7,12 @@ const Item = ({ repository, selected, onSelect }) => (
             <Segment color="teal" tertiary={selected} inverted={selected}>
                 <Header size='medium'>
                     <Checkbox
-                        label={repository.name}
+                        label={repository.get('name')}
                         checked={selected}
-                        onChange={(e, data) => onSelect(repository.name, data.checked)}
+                        onChange={(e, data) => onSelect(repository.get('name'), data.checked)}
                     />
                 </Header>
-                <p>{repository.description}</p>
+                <p>{repository.get('description')}</p>
             </Segment>
         </Grid.Column>
     </Grid.Row>

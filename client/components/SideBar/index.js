@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Icon, Header } from 'semantic-ui-react';
 import { getSelectedOrganization } from '../../store/selectors/organization';
+import { getSelectedRepositories } from '../../store/selectors/repository';
 import './styles.css';
 
 const SideBar = ({ organization, repositories = [], users = [] }) => (
@@ -38,6 +39,7 @@ const SideBar = ({ organization, repositories = [], users = [] }) => (
 
 const mapStateToProps = state => ({
     organization: getSelectedOrganization(state),
+    repositories: getSelectedRepositories(state),
 });
 
 export default connect(mapStateToProps)(SideBar);

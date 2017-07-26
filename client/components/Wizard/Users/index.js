@@ -6,6 +6,7 @@ import { getContributors } from '../../../services/contributors';
 import Item from './Item';
 import Footer from '../Footer';
 import { getSelectedOrganization } from '../../../store/selectors/organization';
+import { getSelectedRepositories } from '../../../store/selectors/repository';
 
 class Users extends Component {
     async componentWillMount() {
@@ -74,6 +75,7 @@ class Users extends Component {
 
 const mapStateToProps = state => ({
     organization: getSelectedOrganization(state),
+    repositories: getSelectedRepositories(state),
 });
 
 export default connect(mapStateToProps)(Users);

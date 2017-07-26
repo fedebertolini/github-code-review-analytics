@@ -6,6 +6,7 @@ import { getRepositoriesPullRequests } from '../../services/pullRequests';
 import { getPullRequestsStatistics } from '../../services/statistics';
 import UserStats from './UserStats';
 import { getSelectedOrganization } from '../../store/selectors/organization';
+import { getSelectedRepositories } from '../../store/selectors/repository';
 import './styles.css';
 
 class Dashboard extends Component {
@@ -45,6 +46,7 @@ class Dashboard extends Component {
 
 const mapStateToProps = state => ({
     organization: getSelectedOrganization(state),
+    repositories: getSelectedRepositories(state),
 });
 
 export default connect(mapStateToProps)(Dashboard);

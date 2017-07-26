@@ -15,8 +15,7 @@ export default (state = defaultState(), action) => {
             return state.set('selectedRepositories', selectedRepositories);
         }
         case REPOSITORY_UNSELECT: {
-            const selectedRepositories = state.get('selectedRepositories')
-                                            .filter(repo => repo.get('id') !== action.payload);
+            const selectedRepositories = state.get('selectedRepositories').filter(repo => repo !== action.payload);
             return state.set('selectedRepositories', selectedRepositories);
         }
         default:

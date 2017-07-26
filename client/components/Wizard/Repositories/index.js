@@ -4,47 +4,28 @@ import throttle from 'lodash/throttle';
 import { Grid, Input } from 'semantic-ui-react';
 import Item from './Item';
 import Footer from '../Footer';
-import { getRepositories } from '../../../services/repositories';
-import { getSelectedOrganization } from '../../../store/selectors/organization';
+import { fetchRepositories, selectRepository, unselectRepository } from '../../../store/actions/repository';
+import { getRepositories, getSelectedRepositories } from '../../../store/selectors/repository';
 
 class Repositories extends Component {
     componentWillMount() {
         this.search = this.search.bind(this);
         this.onRepositorySelectChange = this.onRepositorySelectChange.bind(this);
-        this.selectRepositories = this.selectRepositories.bind(this);
         this.throttledSearch = throttle(this.search, 1000);
 
-        this.state = {
-            repositories: [],
-            selectedRepositories: []
-        };
         this.search();
     }
 
-    async search(text) {
-        try {
-            const repositories = await getRepositories(this.props.organization, text);
-            this.setState({ repositories });
-        } catch(e) {
-            console.log(e);
-        }
+    search(text) {
+        this.props.fetchRepositories(text);
     }
 
     onRepositorySelectChange(repoName, value) {
-        const selected = this.state.selectedRepositories;
         if (value) {
-            this.setState({
-                selectedRepositories: selected.concat([repoName]),
-            });
+            this.props.selectRepository(repoName);
         } else {
-            this.setState({
-                selectedRepositories: selected.filter(repo => repo !== repoName),
-            });
+            this.props.unselectRepository(repoName);
         }
-    }
-
-    selectRepositories() {
-        this.props.selectRepositories(this.state.selectedRepositories);
     }
 
     render() {
@@ -61,19 +42,19 @@ class Repositories extends Component {
                     </Grid.Column>
                 </Grid.Row>
 
-                {this.state.repositories.map((repository) => (
+                {this.props.repositories.map((repository) => (
                     <Item
                         repository={repository}
-                        selected={this.state.selectedRepositories.some(repo => repo === repository.name)}
+                        selected={this.props.selectedRepositories.some(repo => repo === repository.get('name'))}
                         onSelect={this.onRepositorySelectChange}
-                        key={repository.id}
+                        key={repository.get('id')}
                     />
                 ))}
 
                 <Footer
-                    items={this.state.selectedRepositories}
+                    items={this.props.selectedRepositories}
                     onRemove={this.onRepositorySelectChange}
-                    onNextClick={this.selectRepositories}
+                    onNextClick={this.props.selectRepositories}
                 />
             </Grid>
         )
@@ -81,7 +62,14 @@ class Repositories extends Component {
 }
 
 const mapStateToProps = state => ({
-    organization: getSelectedOrganization(state),
+    repositories: getRepositories(state),
+    selectedRepositories: getSelectedRepositories(state),
 });
 
-export default connect(mapStateToProps)(Repositories);
+const mapDispatchToProps = {
+    fetchRepositories,
+    selectRepository,
+    unselectRepository,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Repositories);

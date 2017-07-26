@@ -1,30 +1,24 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Grid, Card, Image, Button } from 'semantic-ui-react';
-import { getUsersOrganizations } from '../../../services/users';
+import { searchUserOrganizations } from '../../../store/actions/organization';
+import { getUserOrganizations } from '../../../store/selectors/organization';
 
 class Organizations extends Component {
-    async componentWillMount() {
-        this.state = {
-            organizations: [],
-        };
-        try {
-            const organizations = await getUsersOrganizations(this.props.userLogin);
-            this.setState({ organizations });
-        } catch(e) {
-            console.log(e);
-        }
+    componentWillMount() {
+        this.props.searchUserOrganizations();
     }
 
     render() {
         const selectOrganization = this.props.selectOrganization;
         return (
             <Grid centered>
-                {this.state.organizations.map((organization) => (
-                    <Card key={organization.id}>
-                        <Image src={organization.avatar_url} />
+                {this.props.organizations.map((organization) => (
+                    <Card key={organization.get('id')}>
+                        <Image src={organization.get('avatar_url')} />
                         <Card.Content>
                             <Card.Header>
-                                {organization.login}
+                                {organization.get('login')}
                             </Card.Header>
                         </Card.Content>
                         <Card.Content extra>
@@ -32,15 +26,23 @@ class Organizations extends Component {
                                 fluid
                                 basic
                                 color="blue"
-                                onClick={() => selectOrganization(organization.login)}
+                                onClick={() => selectOrganization(organization.get('login'))}
                                 content="Select"
                             />
                         </Card.Content>
                     </Card>
                 ))}
             </Grid>
-        )
+        );
     }
 }
 
-export default Organizations;
+const mapStateToProps = state => ({
+    organizations: getUserOrganizations(state),
+});
+
+const mapDispatchToProps = {
+    searchUserOrganizations,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Organizations);

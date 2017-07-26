@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Grid } from 'semantic-ui-react';
 import chunk from 'lodash/chunk';
 import { getContributors } from '../../../services/contributors';
 import Item from './Item';
 import Footer from '../Footer';
+import { getSelectedOrganization } from '../../../store/selectors/organization';
 
 class Users extends Component {
     async componentWillMount() {
@@ -70,4 +72,8 @@ class Users extends Component {
     }
 }
 
-export default Users;
+const mapStateToProps = state => ({
+    organization: getSelectedOrganization(state),
+});
+
+export default connect(mapStateToProps)(Users);

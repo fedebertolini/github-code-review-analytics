@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import throttle from 'lodash/throttle';
 import { Grid, Input } from 'semantic-ui-react';
 import Item from './Item';
 import Footer from '../Footer';
 import { getRepositories } from '../../../services/repositories';
+import { getSelectedOrganization } from '../../../store/selectors/organization';
 
 class Repositories extends Component {
     componentWillMount() {
@@ -78,4 +80,8 @@ class Repositories extends Component {
     }
 }
 
-export default Repositories;
+const mapStateToProps = state => ({
+    organization: getSelectedOrganization(state),
+});
+
+export default connect(mapStateToProps)(Repositories);

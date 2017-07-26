@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Container, Grid } from 'semantic-ui-react';
 import Organizations from './Organizations';
 import Repositories from './Repositories';
 import Users from './Users';
+import { selectOrganization } from '../../store/actions/organization';
+import { getSelectedOrganization } from '../../store/selectors/organization';
 import './styles.css';
 
 const gridWrapper = (step) => (
@@ -17,7 +20,6 @@ class Wizard extends Component {
     componentWillMount() {
         this.state = {
             currentStep: 0,
-            organization: null,
             repositories: [],
         };
 
@@ -27,9 +29,9 @@ class Wizard extends Component {
     }
 
     selectOrganization(organization) {
+        this.props.selectOrganization(organization);
         this.setState({
             currentStep: 1,
-            organization,
         });
     }
 
@@ -41,7 +43,7 @@ class Wizard extends Component {
     }
 
     selectUsers(users) {
-        this.props.finishSelection(this.state.organization, this.state.repositories, users);
+        this.props.finishSelection(this.state.repositories, users);
     }
 
     render() {
@@ -56,14 +58,10 @@ class Wizard extends Component {
                         />
                     )}
                     {this.state.currentStep === 1 && gridWrapper(
-                        <Repositories
-                            organization={this.state.organization}
-                            selectRepositories={this.selectRepositories}
-                        />
+                        <Repositories selectRepositories={this.selectRepositories} />
                     )}
                     {this.state.currentStep === 2 && gridWrapper(
                         <Users
-                            organization={this.state.organization}
                             repositories={this.state.repositories}
                             selectUsers={this.selectUsers}
                         />
@@ -74,4 +72,12 @@ class Wizard extends Component {
     }
 }
 
-export default Wizard;
+const mapStateToProps = state => ({
+    organization: getSelectedOrganization(state),
+});
+
+const mapDispatchToProps = {
+    selectOrganization,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Wizard);

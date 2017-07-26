@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import subMonths from 'date-fns/sub_months';
 import formatDate from 'date-fns/format';
 import { getRepositoriesPullRequests } from '../../services/pullRequests';
 import { getPullRequestsStatistics } from '../../services/statistics';
 import UserStats from './UserStats';
+import { getSelectedOrganization } from '../../store/selectors/organization';
 import './styles.css';
 
 class Dashboard extends Component {
@@ -41,4 +43,8 @@ class Dashboard extends Component {
     };
 }
 
-export default Dashboard;
+const mapStateToProps = state => ({
+    organization: getSelectedOrganization(state),
+});
+
+export default connect(mapStateToProps)(Dashboard);

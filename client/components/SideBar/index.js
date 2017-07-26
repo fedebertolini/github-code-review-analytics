@@ -1,5 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Icon, Header } from 'semantic-ui-react';
+import { getSelectedOrganization } from '../../store/selectors/organization';
 import './styles.css';
 
 const SideBar = ({ organization, repositories = [], users = [] }) => (
@@ -34,4 +36,8 @@ const SideBar = ({ organization, repositories = [], users = [] }) => (
     </div>
 );
 
-export default SideBar;
+const mapStateToProps = state => ({
+    organization: getSelectedOrganization(state),
+});
+
+export default connect(mapStateToProps)(SideBar);

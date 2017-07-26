@@ -19,7 +19,6 @@ class App extends Component {
             showLogin: !hasAccessToken(),
             showWizard: false,
             showDasboard: false,
-            selectedOrganization: null,
             selectedUsers: [],
             selectedRepositories: [],
         };
@@ -29,9 +28,8 @@ class App extends Component {
         }
     }
 
-    finishSelection(selectedOrganization, selectedRepositories, selectedUsers) {
+    finishSelection(selectedRepositories, selectedUsers) {
         this.setState({
-            selectedOrganization,
             selectedUsers,
             selectedRepositories,
             showWizard: false,
@@ -64,7 +62,6 @@ class App extends Component {
         if (this.state.showDasboard) {
             return (
                 <Dashboard
-                    organization={this.state.selectedOrganization}
                     repositories={this.state.selectedRepositories}
                     users={this.state.selectedUsers}
                 />
@@ -82,11 +79,7 @@ class App extends Component {
                 <Grid className="app_content-container">
                     <Grid.Row>
                         <Grid.Column width={3} className="app_sidebar-container">
-                            <SideBar
-                                organization={this.state.selectedOrganization}
-                                repositories={this.state.selectedRepositories}
-                                users={this.state.selectedUsers}
-                            />
+                            <SideBar />
                         </Grid.Column>
                         <Grid.Column width={13}>
                             {this.renderStep()}

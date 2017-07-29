@@ -33,8 +33,8 @@ const UserStats = ({stats, users}) => {
 
 const sortUserList = (stats, users) => {
     const list = users.reduce((userStats, user) => {
-        if (stats[user.login]) {
-            const stat = Object.assign(stats[user.login], { user });
+        if (stats[user.get('login')]) {
+            const stat = Object.assign({}, stats[user.get('login')], { user });
             return userStats.concat([stat]);
         }
         return userStats;

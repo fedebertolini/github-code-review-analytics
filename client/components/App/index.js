@@ -19,7 +19,6 @@ class App extends Component {
             showLogin: !hasAccessToken(),
             showWizard: false,
             showDasboard: false,
-            selectedUsers: [],
         };
 
         if (hasAccessToken()) {
@@ -27,9 +26,8 @@ class App extends Component {
         }
     }
 
-    finishSelection(selectedUsers) {
+    finishSelection() {
         this.setState({
-            selectedUsers,
             showWizard: false,
             showDasboard: true,
         });
@@ -58,7 +56,7 @@ class App extends Component {
             return <Wizard user={this.props.loggedInUser} finishSelection={this.finishSelection} />
         }
         if (this.state.showDasboard) {
-            return <Dashboard users={this.state.selectedUsers} />;
+            return <Dashboard />;
         }
         return null;
     }

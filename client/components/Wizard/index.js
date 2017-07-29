@@ -36,8 +36,8 @@ class Wizard extends Component {
         this.setState({ currentStep: 2 });
     }
 
-    selectUsers(users) {
-        this.props.finishSelection(users);
+    selectUsers() {
+        this.props.finishSelection();
     }
 
     render() {

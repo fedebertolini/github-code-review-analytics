@@ -2,60 +2,48 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Grid } from 'semantic-ui-react';
 import chunk from 'lodash/chunk';
-import { getContributors } from '../../../services/contributors';
 import Item from './Item';
 import Footer from '../Footer';
 import { getSelectedOrganization } from '../../../store/selectors/organization';
 import { getSelectedRepositories } from '../../../store/selectors/repository';
+import { getUsers, getSelectedUsers } from '../../../store/selectors/user';
+import { fetchContributors, selectUser, unselectUser } from '../../../store/actions/user';
 
 class Users extends Component {
-    async componentWillMount() {
+    componentWillMount() {
         this.onSelectUser = this.onSelectUser.bind(this);
         this.onNextClick = this.onNextClick.bind(this);
 
-        this.state = {
-            users: [],
-            selectedUsers: [],
-        };
-        try {
-            const users = await getContributors(this.props.organization, this.props.repositories);
-            this.setState({ users });
-        } catch(e) {
-            console.log(e);
-        }
+        this.props.fetchContributors();
     }
 
     onSelectUser(user, isSelected) {
         if (isSelected) {
-            this.setState({
-                selectedUsers: this.state.selectedUsers.concat([user]),
-            });
+            this.props.selectUser(user);
         } else {
-            this.setState({
-                selectedUsers: this.state.selectedUsers.filter(login => user !== login),
-            });
+            this.props.unselectUser(user);
         }
     }
 
     onNextClick() {
-        const users = this.state.users.filter(user =>
-            this.state.selectedUsers.some(login =>
-                user.login === login
-            )
-        );
-        this.props.selectUsers(users)
+        this.props.selectUsers();
+    }
+
+    isUserSelected(user) {
+        this.props.selectedUsers.some(selected => selected === user.get('login'));
     }
 
     render() {
+        const { selectedUsers, users } = this.props;
         return (
             <Grid padded relaxed>
-                {chunk(this.state.users, 4).map((group, index) => (
+                {chunk(users.toArray(), 4).map((group, index) => (
                     <Grid.Row key={index}>
                         {group.map((user) => (
-                            <Grid.Column key={user.login} width={4}>
+                            <Grid.Column key={user.get('login')} width={4}>
                                 <Item
                                     user={user}
-                                    isSelected={this.state.selectedUsers.some(login => login === user.login)}
+                                    isSelected={this.isUserSelected(user)}
                                     onSelect={this.onSelectUser}
                                 />
                             </Grid.Column>
@@ -64,7 +52,7 @@ class Users extends Component {
                 ))}
 
                 <Footer
-                    items={this.state.selectedUsers}
+                    items={selectedUsers}
                     onRemove={this.onSelectUser}
                     onNextClick={this.onNextClick}
                 />
@@ -76,6 +64,14 @@ class Users extends Component {
 const mapStateToProps = state => ({
     organization: getSelectedOrganization(state),
     repositories: getSelectedRepositories(state),
+    users: getUsers(state),
+    selectedUsers: getSelectedUsers(state),
 });
 
-export default connect(mapStateToProps)(Users);
+const mapDispatchToProps = {
+    fetchContributors,
+    selectUser,
+    unselectUser,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Users);

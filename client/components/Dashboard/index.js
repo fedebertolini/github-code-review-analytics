@@ -7,6 +7,7 @@ import { getPullRequestsStatistics } from '../../services/statistics';
 import UserStats from './UserStats';
 import { getSelectedOrganization } from '../../store/selectors/organization';
 import { getSelectedRepositories } from '../../store/selectors/repository';
+import { getSelectedUsers } from '../../store/selectors/user';
 import './styles.css';
 
 class Dashboard extends Component {
@@ -17,8 +18,8 @@ class Dashboard extends Component {
         };
         const { organization, repositories, users } = this.props;
         const filter = {
-            authors: users.map(user => user.login),
-            createdFrom: formatDate(subMonths(new Date(), 1), 'YYYY-MM-DD')
+            authors: users.toArray(),
+            createdFrom: formatDate(subMonths(new Date(), 1), 'YYYY-MM-DD'),
         };
         const pullRequests = await getRepositoriesPullRequests(organization, repositories, filter);
 
@@ -47,6 +48,7 @@ class Dashboard extends Component {
 const mapStateToProps = state => ({
     organization: getSelectedOrganization(state),
     repositories: getSelectedRepositories(state),
+    users: getSelectedUsers(state),
 });
 
 export default connect(mapStateToProps)(Dashboard);

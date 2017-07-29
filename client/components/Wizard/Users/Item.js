@@ -3,12 +3,12 @@ import { Image, Card, Checkbox } from 'semantic-ui-react';
 
 const Item = ({ user, isSelected, onSelect }) => (
     <Card>
-        <Image src={user.avatar_url} />
+        <Image src={user.get('avatar_url')} />
         <Card.Content>
             <Checkbox
-                label={user.login}
+                label={user.get('login')}
                 checked={isSelected}
-                onChange={(e, data) => onSelect(user.login, data.checked)}
+                onChange={(e, data) => onSelect(user.get('login'), data.checked)}
             />
         </Card.Content>
     </Card>

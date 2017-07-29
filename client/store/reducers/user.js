@@ -30,7 +30,7 @@ export default (state = defaultState(), action) => {
             return state.set('selectedUsers', selectedUsers);
         }
         case USER_UNSELECT: {
-            const selectedUsers = state.get('selectedUsers').filter(user => user.get('login') !== action.payload);
+            const selectedUsers = state.get('selectedUsers').filter(user => user !== action.payload);
             return state.set('selectedUsers', selectedUsers);
         }
         default:

@@ -55,44 +55,28 @@ describe('user reducer', () => {
     it('should select users', () => {
         const result = reducer(undefined, {
             type: USER_SELECT,
-            payload: {
-                login: '123'
-            },
+            payload: 'abc',
         });
 
-        expect(result.get('selectedUsers').toJS()).toEqual([{
-            login: '123'
-        }]);
+        expect(result.get('selectedUsers').toJS()).toEqual(['abc']);
 
         const newState = reducer(result, {
             type: USER_SELECT,
-            payload: {
-                login: '456'
-            },
+            payload: 'fede',
         });
 
-        expect(newState.get('selectedUsers').toJS()).toEqual([{
-            login: '123'
-        }, {
-            login: '456'
-        }]);
+        expect(newState.get('selectedUsers').toJS()).toEqual(['abc', 'fede']);
     });
 
     it('should unselect users', () => {
         const previousState = fromJS({
-            selectedUsers: [{
-                login: '123'
-            }, {
-                login: '456'
-            }],
+            selectedUsers: ['abc', 'fede'],
         });
         const result = reducer(previousState, {
             type: USER_UNSELECT,
-            payload: '123',
+            payload: 'abc',
         });
 
-        expect(result.get('selectedUsers').toJS()).toEqual([{
-            login: '456'
-        }]);
+        expect(result.get('selectedUsers').toJS()).toEqual(['fede']);
     });
 });

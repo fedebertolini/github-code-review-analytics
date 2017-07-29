@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Icon, Header } from 'semantic-ui-react';
 import { getSelectedOrganization } from '../../store/selectors/organization';
 import { getSelectedRepositories } from '../../store/selectors/repository';
+import { getSelectedUsersData } from '../../store/selectors/user';
 import './styles.css';
 
 const SideBar = ({ organization, repositories = [], users = [] }) => (
@@ -32,7 +33,9 @@ const SideBar = ({ organization, repositories = [], users = [] }) => (
         </div>
 
         {users.map(user => (
-            <div key={user.login} className="sidebar_subitem">{user.login}</div>
+            <div key={user.get('login')} className="sidebar_subitem">
+                {user.get('login')}
+            </div>
         ))}
     </div>
 );
@@ -40,6 +43,7 @@ const SideBar = ({ organization, repositories = [], users = [] }) => (
 const mapStateToProps = state => ({
     organization: getSelectedOrganization(state),
     repositories: getSelectedRepositories(state),
+    users: getSelectedUsersData(state)
 });
 
 export default connect(mapStateToProps)(SideBar);

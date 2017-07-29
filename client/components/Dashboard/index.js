@@ -35,7 +35,7 @@ class Dashboard extends Component {
         }
         return (
             <div className="dashboard_page-container">
-                <UserStats stats={stats.slices.user} users={this.props.users} />
+                <UserStats stats={stats.slices.user} />
 
                 <div>
                     <code>{JSON.stringify(stats, null, 4)}</code>

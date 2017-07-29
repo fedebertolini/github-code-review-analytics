@@ -6,8 +6,8 @@ const UserRow = ({ statistics }) => (
     <Table.Row key={statistics.user.id}>
         <Table.Cell>
             <Header as='h4' image>
-                <Image src={statistics.user.avatar_url} shape='rounded' size='mini' />
-                <Header.Content>{statistics.user.login}</Header.Content>
+                <Image src={statistics.user.get('avatar_url')} shape='rounded' size='mini' />
+                <Header.Content>{statistics.user.get('login')}</Header.Content>
             </Header>
         </Table.Cell>
         <Table.Cell>{statistics.pullRequest.total}</Table.Cell>

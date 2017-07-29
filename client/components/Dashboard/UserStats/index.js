@@ -1,10 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Table, Segment } from 'semantic-ui-react';
 import sortBy from 'lodash/sortBy';
 import reverse from 'lodash/reverse';
 import UserRow from './UserRow';
+import { getSelectedUsersData } from '../../../store/selectors/user';
 
-const UserStats = ({stats, users}) => {
+const UserStats = ({ stats, users }) => {
     const orderedList = sortUserList(stats, users);
 
     return (
@@ -42,4 +44,8 @@ const sortUserList = (stats, users) => {
     return reverse(sortBy(list, 'pullRequest.total'));
 };
 
-export default UserStats;
+const mapStateToProps = state => ({
+    users: getSelectedUsersData(state)
+});
+
+export default connect(mapStateToProps)(UserStats);

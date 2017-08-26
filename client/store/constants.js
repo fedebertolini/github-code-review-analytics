@@ -10,3 +10,5 @@ export const LOGGED_IN_USER_ERROR = 'LOGGED_IN_USER_ERROR';
 export const USERS_LOAD = 'USERS_LOAD';
 export const USER_SELECT = 'USER_SELECT';
 export const USER_UNSELECT = 'USER_UNSELECT';
+
+export const STATISTICS_LOAD = 'STATISTICS_LOAD';

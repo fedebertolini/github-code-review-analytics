@@ -60,8 +60,8 @@ const timeToFirstCommentMap = prs => prs.map(pr => {
 const timeToMergeMap = prs => prs.map(pr => getDateHoursDiff(pr.createdAt, pr.mergedAt));
 
 const getValueListStats = (values) => {
-    const meanValue = mean(values);
-    const deviationValue = standardDeviation(values, meanValue);
+    const meanValue = values.length ? mean(values) : 0;
+    const deviationValue = values.length ? standardDeviation(values, meanValue) : 0;
     return {
         values: roundValues(values),
         mean: round(meanValue, 2),

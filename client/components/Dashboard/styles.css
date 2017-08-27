@@ -1,5 +1,6 @@
 .dashboard_page-container {
     height: 100%;
+    overflow-y: auto;
     padding: 20px;
     background-color: #F8F8F8;
 }

@@ -4,11 +4,10 @@ import subMonths from 'date-fns/sub_months';
 import formatDate from 'date-fns/format';
 import { getRepositoriesPullRequests } from '../../services/pullRequests';
 import { getPullRequestsStatistics } from '../../services/statistics';
-import UserStats from './UserStats';
+import UserStatistics from './UserStatistics';
 import { getSelectedOrganization } from '../../store/selectors/organization';
 import { getSelectedRepositories } from '../../store/selectors/repository';
 import { getSelectedUsers } from '../../store/selectors/user';
-import { getUserSlice } from '../../store/selectors/statistics';
 import { loadStatistics } from '../../store/actions/statistics';
 import './styles.css';
 
@@ -25,13 +24,9 @@ class Dashboard extends Component {
     }
 
     render() {
-        const userSlice = this.props.userSlice;
-        if (!userSlice) {
-            return null;
-        }
         return (
             <div className="dashboard_page-container">
-                <UserStats stats={this.props.userSlice} />
+                <UserStatistics />
             </div>
         );
     };
@@ -41,7 +36,6 @@ const mapStateToProps = state => ({
     organization: getSelectedOrganization(state),
     repositories: getSelectedRepositories(state),
     users: getSelectedUsers(state),
-    userSlice: getUserSlice(state),
 });
 
 const mapDispatchToProps = {

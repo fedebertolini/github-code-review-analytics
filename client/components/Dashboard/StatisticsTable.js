@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table, Segment } from 'semantic-ui-react';
+import { Table } from 'semantic-ui-react';
 import _sortBy from 'lodash/sortBy';
 import reverse from 'lodash/reverse';
 
@@ -9,30 +9,28 @@ const StatisticsTable = ({ headers, rows, sortBy, sortAsc = true }) => {
     }
     const sortedRows = sortRows(rows, sortBy, sortAsc);
     return (
-        <Segment>
-            <Table>
-                <Table.Header>
-                    <Table.Row>
+        <Table>
+            <Table.Header>
+                <Table.Row>
+                    {headers.map(header => (
+                        <Table.HeaderCell key={header.id}>
+                            {header.title}
+                        </Table.HeaderCell>
+                    ))}
+                </Table.Row>
+            </Table.Header>
+            <Table.Body>
+                {sortedRows.map((row, index) => (
+                    <Table.Row key={index}>
                         {headers.map(header => (
-                            <Table.HeaderCell key={header.id}>
-                                {header.title}
-                            </Table.HeaderCell>
+                            <Table.Cell key={header.id} textAlign={header.textAlign || 'left'}>
+                                {row[header.id]}
+                            </Table.Cell>
                         ))}
                     </Table.Row>
-                </Table.Header>
-                <Table.Body>
-                    {sortedRows.map((row, index) => (
-                        <Table.Row key={index}>
-                            {headers.map(header => (
-                                <Table.Cell key={header.id} textAlign={header.textAlign || 'left'}>
-                                    {row[header.id]}
-                                </Table.Cell>
-                            ))}
-                        </Table.Row>
-                    ))}
-                </Table.Body>
-            </Table>
-        </Segment>
+                ))}
+            </Table.Body>
+        </Table>
     );
 };
 

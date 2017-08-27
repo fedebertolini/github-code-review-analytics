@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import round from 'lodash/round';
-import { Image, Header } from 'semantic-ui-react';
+import { Image, Header, Segment } from 'semantic-ui-react';
 import { getSelectedUsersData } from '../../store/selectors/user';
 import { getUserSlice } from '../../store/selectors/statistics';
 import StatisticsTable from './StatisticsTable';
 
 const UserStatistics = ({ users, stats }) => (
-    <div>
+    <Segment>
         <Header as="h3">Sliced by user</Header>
 
         <StatisticsTable
@@ -16,7 +16,7 @@ const UserStatistics = ({ users, stats }) => (
             sortBy="mergedPRs"
             sortAsc={false}
         />
-    </div>
+    </Segment>
 );
 
 const headers = () => [

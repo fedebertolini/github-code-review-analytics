@@ -5,6 +5,7 @@ import formatDate from 'date-fns/format';
 import { getRepositoriesPullRequests } from '../../services/pullRequests';
 import { getPullRequestsStatistics } from '../../services/statistics';
 import UserStatistics from './UserStatistics';
+import TotalStatistics from './TotalStatistics';
 import { getSelectedOrganization } from '../../store/selectors/organization';
 import { getSelectedRepositories } from '../../store/selectors/repository';
 import { getSelectedUsers } from '../../store/selectors/user';
@@ -26,6 +27,7 @@ class Dashboard extends Component {
     render() {
         return (
             <div className="dashboard_page-container">
+                <TotalStatistics />
                 <UserStatistics />
             </div>
         );

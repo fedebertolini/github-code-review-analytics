@@ -7,12 +7,16 @@ import { getUserSlice } from '../../store/selectors/statistics';
 import StatisticsTable from './StatisticsTable';
 
 const UserStatistics = ({ users, stats }) => (
-    <StatisticsTable
-        headers={headers()}
-        rows={rows(users, stats)}
-        sortBy="mergedPRs"
-        sortAsc={false}
-    />
+    <div>
+        <Header as="h3">Sliced by user</Header>
+
+        <StatisticsTable
+            headers={headers()}
+            rows={rows(users, stats)}
+            sortBy="mergedPRs"
+            sortAsc={false}
+        />
+    </div>
 );
 
 const headers = () => [

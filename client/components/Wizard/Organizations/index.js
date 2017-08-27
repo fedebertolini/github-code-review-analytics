@@ -9,11 +9,19 @@ class Organizations extends Component {
         this.props.searchUserOrganizations();
     }
 
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.organizations.size === 1) {
+            const organization = nextProps.organizations.first();
+            this.props.selectOrganization(organization.get('login'));
+        }
+    }
+
     render() {
-        const selectOrganization = this.props.selectOrganization;
+        const { organizations, selectOrganization } = this.props;
+
         return (
             <Grid centered>
-                {this.props.organizations.map((organization) => (
+                {organizations.map((organization) => (
                     <Card key={organization.get('id')}>
                         <Image src={organization.get('avatar_url')} />
                         <Card.Content>

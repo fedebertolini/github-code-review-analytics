@@ -10,6 +10,8 @@ const UserStatistics = ({ users, stats }) => (
     <StatisticsTable
         headers={headers()}
         rows={rows(users, stats)}
+        sortBy="mergedPRs"
+        sortAsc={false}
     />
 );
 
@@ -29,15 +31,17 @@ const rows = (users, stats) => {
     }
     const result = users.map((user) => {
         const userStats = stats.get(user.get('login'));
+        const pullRequests = userStats.getIn(['pullRequest', 'total']);
+        const commits = userStats.get('totalCommits');
 
         return {
             user: getUserCell(user),
-            createdPRs: userStats.getIn(['pullRequest', 'total']),
-            mergedPRs: userStats.getIn(['pullRequest', 'merged']),
-            commits: userStats.get('totalCommits'),
-            commitsPerPR: round(userStats.get('totalCommits') / userStats.getIn(['pullRequest', 'total'])),
-            timeToMerge: userStats.getIn(['timeToMerge', 'mean']),
-            timeToFirstComment: userStats.getIn(['timeToFirstComment', 'mean']),
+            createdPRs: userStats ? pullRequests : 0,
+            mergedPRs: userStats ? userStats.getIn(['pullRequest', 'merged']) : 0,
+            commits: userStats ? commits : 0,
+            commitsPerPR: userStats ? round(commits / pullRequests) : '-',
+            timeToMerge: userStats ? userStats.getIn(['timeToMerge', 'mean']) + ' hs' : '-',
+            timeToFirstComment: userStats ? userStats.getIn(['timeToFirstComment', 'mean']) + ' hs' : '-',
         }
     });
     return result.toArray();

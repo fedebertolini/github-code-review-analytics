@@ -66,6 +66,9 @@ const pullRequestGraphQLQuery = (searchQuery, first, after = null) =>
               commits(first: 1) {
                 totalCount
               }
+              repository {
+                name
+              }
               comments(first: 100) {
                 totalCount
                 nodes {
@@ -100,6 +103,7 @@ export const mapGraphQLResult = (result) => {
                 createdAt: comment.createdAt,
                 author: comment.author.login,
             })),
+            repository: edge.node.repository.name,
         };
     });
 };

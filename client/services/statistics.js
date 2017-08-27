@@ -11,6 +11,7 @@ export const getPullRequestsStatistics = (pullRequests) => ({
     slices: {
         user: getUserSliceStats(pullRequests),
         day: getDaySliceStats(pullRequests),
+        repository: getRepositorySliceStats(pullRequests),
     },
 });
 
@@ -25,6 +26,13 @@ const getUserSliceStats = prs => {
     const users = uniq(prs.map(pr => pr.author));
     return users.reduce((usersStats, user) => Object.assign(usersStats, {
         [user]: getUserStats(user)(prs),
+    }), {});
+};
+
+const getRepositorySliceStats = prs => {
+    const repos = uniq(prs.map(pr => pr.repository));
+    return repos.reduce((reposStats, repository) => Object.assign(reposStats, {
+        [repository]: getRepositoryStats(repository)(prs),
     }), {});
 };
 
@@ -46,6 +54,9 @@ const getUserStats = user => flow([userFilter(user), getStats]);
 
 const dayFilter = day => prs => prs.filter(pr => day === (new Date(pr.createdAt)).getDay());
 const getDayStats = day => flow([dayFilter(day), getStats]);
+
+const repositoryFilter = repository => prs => prs.filter(pr => pr.repository === repository);
+const getRepositoryStats = repository => flow([repositoryFilter(repository), getStats]);
 
 const findFirstComment = pr => pr.comments.find(comment => comment.author !== pr.author);
 

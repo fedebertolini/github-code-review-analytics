@@ -23,7 +23,7 @@ const headers = () => [
     { id: 'user', title: 'User' },
     { id: 'createdPRs', title: 'Created PRs', textAlign: 'center' },
     { id: 'mergedPRs', title: 'Merged PRs', textAlign: 'center' },
-    { id: 'commits', title: 'commits', textAlign: 'center' },
+    { id: 'commits', title: 'Commits', textAlign: 'center' },
     { id: 'commitsPerPR', title: 'Commits / PR', textAlign: 'center' },
     { id: 'timeToMerge', title: 'Time to merge', textAlign: 'center' },
     { id: 'timeToFirstComment', title: 'Time to first comment', textAlign: 'center' },

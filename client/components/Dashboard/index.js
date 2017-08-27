@@ -7,6 +7,7 @@ import { getPullRequestsStatistics } from '../../services/statistics';
 import UserStatistics from './UserStatistics';
 import TotalStatistics from './TotalStatistics';
 import DayStatistics from './DayStatistics';
+import RepositoryStatistics from './RepositoryStatistics';
 import { getSelectedOrganization } from '../../store/selectors/organization';
 import { getSelectedRepositories } from '../../store/selectors/repository';
 import { getSelectedUsers } from '../../store/selectors/user';
@@ -29,6 +30,7 @@ class Dashboard extends Component {
         return (
             <div className="dashboard_page-container">
                 <TotalStatistics />
+                {this.props.repositories.size > 1 && <RepositoryStatistics />}
                 <UserStatistics />
                 <DayStatistics />
             </div>

@@ -53,7 +53,7 @@ class Repositories extends Component {
                     </Grid.Column>
                 </Grid.Row>
             </Grid>
-        )
+        );
     }
 }
 

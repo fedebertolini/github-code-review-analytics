@@ -1,77 +1,63 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Grid } from 'semantic-ui-react';
-import chunk from 'lodash/chunk';
-import Item from './Item';
-import Footer from '../Footer';
-import { getSelectedOrganization } from '../../../store/selectors/organization';
-import { getSelectedRepositories } from '../../../store/selectors/repository';
-import { getUsers, getSelectedUsers } from '../../../store/selectors/user';
-import { fetchContributors, selectUser, unselectUser } from '../../../store/actions/user';
+import { Grid, Button, Header, Input } from 'semantic-ui-react';
+import UserTable from './UserTable';
+import { getSelectedUsers } from '../../../store/selectors/user';
+import { fetchContributors } from '../../../store/actions/user';
 
 class Users extends Component {
+
     componentWillMount() {
-        this.onSelectUser = this.onSelectUser.bind(this);
-        this.onNextClick = this.onNextClick.bind(this);
-
         this.props.fetchContributors();
-    }
 
-    onSelectUser(user, isSelected) {
-        if (isSelected) {
-            this.props.selectUser(user);
-        } else {
-            this.props.unselectUser(user);
-        }
-    }
-
-    onNextClick() {
-        this.props.selectUsers();
-    }
-
-    isUserSelected(user) {
-        this.props.selectedUsers.some(selected => selected === user.get('login'));
+        this.state = { searchText: '' };
     }
 
     render() {
-        const { selectedUsers, users } = this.props;
         return (
-            <Grid padded relaxed>
-                {chunk(users.toArray(), 4).map((group, index) => (
-                    <Grid.Row key={index}>
-                        {group.map((user) => (
-                            <Grid.Column key={user.get('login')} width={4}>
-                                <Item
-                                    user={user}
-                                    isSelected={this.isUserSelected(user)}
-                                    onSelect={this.onSelectUser}
-                                />
-                            </Grid.Column>
-                        ))}
-                    </Grid.Row>
-                ))}
+            <Grid centered>
+                <Grid.Row>
+                    <Grid.Column><Header as="h3">User Selection</Header></Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                    <Grid.Column>
+                        <Input
+                            fluid
+                            icon='search'
+                            placeholder='Search...'
+                            onChange={(e, data) => this.setState({ searchText: data.value })}
+                        />
+                    </Grid.Column>
+                </Grid.Row>
 
-                <Footer
-                    items={selectedUsers}
-                    onRemove={this.onSelectUser}
-                    onNextClick={this.onNextClick}
-                />
+                <Grid.Row>
+                    <Grid.Column>
+                        <UserTable searchText={this.state.searchText} />
+                    </Grid.Column>
+                </Grid.Row>
+
+                <Grid.Row>
+                    <Grid.Column width={5}>
+                        <Button
+                            onClick={this.props.selectUsers}
+                            disabled={this.props.disableNextButton}
+                            primary
+                            fluid
+                            content="Next"
+                        />
+                    </Grid.Column>
+                </Grid.Row>
             </Grid>
-        )
+        );
     }
 }
 
 const mapStateToProps = state => ({
-    organization: getSelectedOrganization(state),
-    repositories: getSelectedRepositories(state),
-    users: getUsers(state),
-    selectedUsers: getSelectedUsers(state),
+    disableNextButton: getSelectedUsers(state).size === 0,
 });
 
 const mapDispatchToProps = {
     fetchContributors,
-    selectUser,
-    unselectUser,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Users);

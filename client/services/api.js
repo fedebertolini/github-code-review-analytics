@@ -6,7 +6,16 @@ import { getAccessToken } from './auth';
 const host = 'https://api.github.com';
 
 export const authorizedGetData = (url, params) =>
-    authorizedGet(url, params).then(result => result.data);
+    authorizedGet(url, params).then(result => {
+        if (result.status === 200) {
+            return result.data;
+        } else if (result.status === 202) {
+            // github is processing the request, call again
+            return authorizedGetData(url, params);
+        }
+        console.log(`Unknown result status: ${result.status}`);
+        return {};
+    });
 
 export const authorizedGet = (url, params) => {
     return get(`${host}${url}`, {

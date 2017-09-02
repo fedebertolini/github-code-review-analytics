@@ -1,11 +1,25 @@
 import flatten from 'lodash/flatten';
-import uniqBy from 'lodash/uniqBy';
+import orderBy from 'lodash/orderBy';
+import reverse from 'lodash/reverse';
 import { authorizedGetData } from './api';
 
 export const getContributors = async (org, repositories) => {
     const result = await Promise.all(repositories.map(repo => getContributorsByRepo(org, repo)));
-    const users = flatten(result).map(contributor => contributor.author);
-    return uniqBy(users, user => user.id);
+
+    const contributorsDictionary = flatten(result)
+        .map(contributor => Object.assign(contributor.author, {
+            contributions: contributor.total
+        }))
+        .reduce((contributors, contributor) => {
+            if (contributors[contributor.id]) {
+                contributors[contributor.id].contributions += contributor.total;
+            } else {
+                contributors[contributor.id] = contributor;
+            }
+            return contributors;
+        }, {});
+
+    return reverse(orderBy(Object.values(contributorsDictionary), 'contributions'));
 };
 
 const getContributorsByRepo = async (org, repo) => {

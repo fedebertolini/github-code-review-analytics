@@ -4,9 +4,10 @@ import { Icon, Header } from 'semantic-ui-react';
 import { getSelectedOrganization } from '../../store/selectors/organization';
 import { getSelectedRepositories } from '../../store/selectors/repository';
 import { getSelectedUsersData } from '../../store/selectors/user';
+import { unselectRepository } from '../../store/actions/repository';
 import './styles.css';
 
-const SideBar = ({ organization, repositories = [], users = [] }) => (
+const SideBar = ({ organization, repositories = [], users = [], unselectRepository }) => (
     <div>
         <div className="sidebar_item">
             <Header as="h4">
@@ -23,7 +24,10 @@ const SideBar = ({ organization, repositories = [], users = [] }) => (
         </div>
 
         {repositories.map(repo => (
-            <div key={repo} className="sidebar_subitem">{repo}</div>
+            <div key={repo} className="sidebar_subitem">
+                <Icon name='remove' onClick={() => unselectRepository(repo)} />
+                {repo}
+            </div>
         ))}
 
         <div className="sidebar_item">
@@ -46,4 +50,8 @@ const mapStateToProps = state => ({
     users: getSelectedUsersData(state)
 });
 
-export default connect(mapStateToProps)(SideBar);
+const mapDispatchToProps = {
+    unselectRepository,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SideBar);

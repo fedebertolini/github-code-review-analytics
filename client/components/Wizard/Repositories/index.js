@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import throttle from 'lodash/throttle';
-import { Grid, Input } from 'semantic-ui-react';
-import Item from './Item';
-import Footer from '../Footer';
-import { fetchRepositories, selectRepository, unselectRepository } from '../../../store/actions/repository';
-import { getRepositories, getSelectedRepositories } from '../../../store/selectors/repository';
+import debounce from 'lodash/debounce';
+import { Grid, Input, Header, Button } from 'semantic-ui-react';
+import RepositoryTable from './RepositoryTable';
+import { getSelectedRepositories } from '../../../store/selectors/repository';
+import { fetchRepositories } from '../../../store/actions/repository';
 
 class Repositories extends Component {
     componentWillMount() {
         this.search = this.search.bind(this);
-        this.onRepositorySelectChange = this.onRepositorySelectChange.bind(this);
-        this.throttledSearch = throttle(this.search, 1000);
+        this.debouncedSearch = debounce(this.search, 1000);
 
         this.search();
     }
@@ -20,56 +18,47 @@ class Repositories extends Component {
         this.props.fetchRepositories(text);
     }
 
-    onRepositorySelectChange(repoName, value) {
-        if (value) {
-            this.props.selectRepository(repoName);
-        } else {
-            this.props.unselectRepository(repoName);
-        }
-    }
-
     render() {
         return (
             <Grid centered>
+                <Grid.Row>
+                    <Grid.Column><Header as="h3">Repository Selection</Header></Grid.Column>
+                </Grid.Row>
                 <Grid.Row>
                     <Grid.Column>
                         <Input
                             fluid
                             icon='search'
                             placeholder='Search...'
-                            onChange={(e, data) => this.throttledSearch(data.value)}
+                            onChange={(e, data) => this.debouncedSearch(data.value)}
                         />
                     </Grid.Column>
                 </Grid.Row>
 
-                {this.props.repositories.map((repository) => (
-                    <Item
-                        repository={repository}
-                        selected={this.props.selectedRepositories.some(repo => repo === repository.get('name'))}
-                        onSelect={this.onRepositorySelectChange}
-                        key={repository.get('id')}
-                    />
-                ))}
+                <Grid.Row>
+                    <Grid.Column>
+                        <RepositoryTable />
+                    </Grid.Column>
+                </Grid.Row>
 
-                <Footer
-                    items={this.props.selectedRepositories}
-                    onRemove={this.onRepositorySelectChange}
-                    onNextClick={this.props.selectRepositories}
-                />
+                <Grid.Row>
+                    <Grid.Column width={5}>
+                        <Button
+                            onClick={this.props.selectRepositories}
+                            disabled={this.props.disableNextButton}
+                            primary
+                            fluid
+                            content="Next"
+                        />
+                    </Grid.Column>
+                </Grid.Row>
             </Grid>
         )
     }
 }
 
 const mapStateToProps = state => ({
-    repositories: getRepositories(state),
-    selectedRepositories: getSelectedRepositories(state),
+    disableNextButton: getSelectedRepositories(state).size === 0,
 });
 
-const mapDispatchToProps = {
-    fetchRepositories,
-    selectRepository,
-    unselectRepository,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Repositories);
+export default connect(mapStateToProps, { fetchRepositories })(Repositories);

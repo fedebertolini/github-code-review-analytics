@@ -35,14 +35,14 @@ const rows = (users, stats) => {
     }
     const result = users.map((user) => {
         const userStats = stats.get(user.get('login'));
-        const pullRequests = userStats.getIn(['pullRequest', 'total']);
-        const commits = userStats.get('totalCommits');
+        const pullRequests = userStats ? userStats.getIn(['pullRequest', 'total']) : 0;
+        const commits = userStats ? userStats.get('totalCommits') : 0;
 
         return {
             user: getUserCell(user),
-            createdPRs: userStats ? pullRequests : 0,
+            createdPRs: pullRequests,
             mergedPRs: userStats ? userStats.getIn(['pullRequest', 'merged']) : 0,
-            commits: userStats ? commits : 0,
+            commits,
             commitsPerPR: userStats ? round(commits / pullRequests) : '-',
             timeToMerge: userStats ? userStats.getIn(['timeToMerge', 'mean']) + ' hs' : '-',
             timeToFirstComment: userStats ? userStats.getIn(['timeToFirstComment', 'mean']) + ' hs' : '-',

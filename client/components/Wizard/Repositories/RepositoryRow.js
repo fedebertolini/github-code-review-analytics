@@ -17,7 +17,6 @@ const RepositoryRow = ({ repository, isSelected, selectRepository, unselectRepos
         <Table.Row positive={isSelected}>
             <Table.Cell collapsing>
                 <Checkbox
-                    color="red"
                     checked={isSelected}
                     onChange={onRepositorySelectChange}
                 />

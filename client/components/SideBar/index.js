@@ -5,9 +5,10 @@ import { getSelectedOrganization } from '../../store/selectors/organization';
 import { getSelectedRepositories } from '../../store/selectors/repository';
 import { getSelectedUsersData } from '../../store/selectors/user';
 import { unselectRepository } from '../../store/actions/repository';
+import { unselectUser } from '../../store/actions/user';
 import './styles.css';
 
-const SideBar = ({ organization, repositories = [], users = [], unselectRepository }) => (
+const SideBar = ({ organization, repositories = [], users = [], unselectRepository, unselectUser }) => (
     <div>
         <div className="sidebar_item">
             <Header as="h4">
@@ -25,7 +26,7 @@ const SideBar = ({ organization, repositories = [], users = [], unselectReposito
 
         {repositories.map(repo => (
             <div key={repo} className="sidebar_subitem">
-                <Icon name='remove' onClick={() => unselectRepository(repo)} />
+                <Icon name='remove' color="red" onClick={() => unselectRepository(repo)} />
                 {repo}
             </div>
         ))}
@@ -38,6 +39,7 @@ const SideBar = ({ organization, repositories = [], users = [], unselectReposito
 
         {users.map(user => (
             <div key={user.get('login')} className="sidebar_subitem">
+                <Icon name='remove' color="red" onClick={() => unselectUser(user.get('login'))} />
                 {user.get('login')}
             </div>
         ))}
@@ -52,6 +54,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
     unselectRepository,
+    unselectUser,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SideBar);

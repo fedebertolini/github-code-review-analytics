@@ -12,7 +12,7 @@ export const getContributors = async (org, repositories) => {
         }))
         .reduce((contributors, contributor) => {
             if (contributors[contributor.id]) {
-                contributors[contributor.id].contributions += contributor.total;
+                contributors[contributor.id].contributions += contributor.contributions;
             } else {
                 contributors[contributor.id] = contributor;
             }

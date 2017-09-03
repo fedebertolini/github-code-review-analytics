@@ -5,18 +5,24 @@ import { Header, Segment } from 'semantic-ui-react';
 import { getRepositorySlice } from '../../store/selectors/statistics';
 import StatisticsTable from './StatisticsTable';
 
-const RepositoryStatistics = ({ users, stats }) => (
-    <Segment>
-        <Header as="h3">Sliced by repository</Header>
+const RepositoryStatistics = ({ users, stats }) => {
+    const rows = buildRows(stats);
+    if (rows.length < 2) {
+        return null;
+    }
+    return (
+        <Segment>
+            <Header as="h3">Sliced by repository</Header>
 
-        <StatisticsTable
-            headers={headers()}
-            rows={rows(stats)}
-            sortBy="mergedPRs"
-            sortAsc={false}
-        />
-    </Segment>
-);
+            <StatisticsTable
+                headers={headers()}
+                rows={rows}
+                sortBy="mergedPRs"
+                sortAsc={false}
+            />
+        </Segment>
+    );
+};
 
 const headers = () => [
     { id: 'repository', title: 'Repository' },
@@ -28,7 +34,7 @@ const headers = () => [
     { id: 'timeToFirstComment', title: 'Time to first comment', textAlign: 'center' },
 ];
 
-const rows = (stats) => {
+const buildRows = (stats) => {
     if (!stats) {
         return [];
     }

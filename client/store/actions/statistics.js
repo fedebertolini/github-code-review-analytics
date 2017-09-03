@@ -10,7 +10,7 @@ export const loadStatistics = statistics => ({
     payload: statistics,
 });
 
-export const fetchStatistics = ({ createdFrom, createdTo }) => async (dispatch, getState) => {
+export const fetchStatistics = ({ createdFrom }) => async (dispatch, getState) => {
     const state = getState();
     const organization = getSelectedOrganization(state);
     const repositories = getSelectedRepositories(state);
@@ -19,7 +19,6 @@ export const fetchStatistics = ({ createdFrom, createdTo }) => async (dispatch, 
     const filter = {
         authors: users.toArray(),
         createdFrom,
-        createdTo
     };
 
     const pullRequests = await getRepositoriesPullRequests(organization, repositories, filter);

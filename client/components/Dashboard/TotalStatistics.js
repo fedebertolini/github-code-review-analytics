@@ -2,11 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import round from 'lodash/round';
 import { Header, Segment } from 'semantic-ui-react';
-import { getTotalStatistics } from '../../store/selectors/statistics';
+import { getTotalStatistics, getIsInProgress } from '../../store/selectors/statistics';
 import StatisticsTable from './StatisticsTable';
 
-const TotalStatistics = ({ stats }) => (
-    <Segment>
+const TotalStatistics = ({ stats, inProgress }) => (
+    <Segment loading={inProgress}>
         <Header as="h3">General statistics</Header>
 
         <StatisticsTable
@@ -46,6 +46,7 @@ const rows = (stats) => {
 
 const mapStateToProps = state => ({
     stats: getTotalStatistics(state),
+    inProgress: getIsInProgress(state),
 });
 
 export default connect(mapStateToProps)(TotalStatistics);

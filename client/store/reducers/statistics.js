@@ -1,10 +1,16 @@
-import { fromJS, Map } from 'immutable';
-import { STATISTICS_LOAD } from '../constants';
+import { fromJS } from 'immutable';
+import { STATISTICS_LOAD, STATISTICS_IN_PROGRESS } from '../constants';
 
-export default (state = new Map(), action) => {
+const initialState = () => fromJS({
+    inProgress: false,
+});
+
+export default (state = initialState(), action) => {
     switch (action.type) {
         case STATISTICS_LOAD:
-            return fromJS(action.payload);
+            return fromJS(action.payload).set('inProgress', false);
+        case STATISTICS_IN_PROGRESS:
+            return state.set('inProgress', true);
         default:
             return state;
     }

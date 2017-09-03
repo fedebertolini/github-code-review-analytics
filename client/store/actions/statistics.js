@@ -1,4 +1,4 @@
-import { STATISTICS_LOAD } from '../constants';
+import { STATISTICS_LOAD, STATISTICS_IN_PROGRESS } from '../constants';
 import { getSelectedOrganization } from './../selectors/organization';
 import { getSelectedRepositories } from './../selectors/repository';
 import { getSelectedUsers } from './../selectors/user';
@@ -10,7 +10,13 @@ export const loadStatistics = statistics => ({
     payload: statistics,
 });
 
+export const inProgressStatistics = () => ({
+    type: STATISTICS_IN_PROGRESS,
+});
+
 export const fetchStatistics = ({ createdFrom }) => async (dispatch, getState) => {
+    dispatch(inProgressStatistics());
+
     const state = getState();
     const organization = getSelectedOrganization(state);
     const repositories = getSelectedRepositories(state);

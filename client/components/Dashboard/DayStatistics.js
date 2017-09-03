@@ -2,11 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import round from 'lodash/round';
 import { Header, Segment } from 'semantic-ui-react';
-import { getDaySlice } from '../../store/selectors/statistics';
+import { getDaySlice, getIsInProgress } from '../../store/selectors/statistics';
 import StatisticsTable from './StatisticsTable';
 
-const DayStatistics = ({ users, stats }) => (
-    <Segment>
+const DayStatistics = ({ users, stats, inProgress }) => (
+    <Segment loading={inProgress}>
         <Header as="h3">Sliced by day</Header>
 
         <StatisticsTable
@@ -61,6 +61,7 @@ const rows = (stats) => {
 
 const mapStateToProps = state => ({
     stats: getDaySlice(state),
+    inProgress: getIsInProgress(state),
 });
 
 export default connect(mapStateToProps)(DayStatistics);

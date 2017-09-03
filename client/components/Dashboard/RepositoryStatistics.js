@@ -2,16 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 import round from 'lodash/round';
 import { Header, Segment } from 'semantic-ui-react';
-import { getRepositorySlice } from '../../store/selectors/statistics';
+import { getRepositorySlice, getIsInProgress } from '../../store/selectors/statistics';
 import StatisticsTable from './StatisticsTable';
 
-const RepositoryStatistics = ({ users, stats }) => {
+const RepositoryStatistics = ({ users, stats, inProgress }) => {
     const rows = buildRows(stats);
     if (rows.length < 2) {
         return null;
     }
     return (
-        <Segment>
+        <Segment loading={inProgress}>
             <Header as="h3">Sliced by repository</Header>
 
             <StatisticsTable
@@ -59,6 +59,7 @@ const buildRows = (stats) => {
 
 const mapStateToProps = state => ({
     stats: getRepositorySlice(state),
+    inProgress: getIsInProgress(state),
 });
 
 export default connect(mapStateToProps)(RepositoryStatistics);

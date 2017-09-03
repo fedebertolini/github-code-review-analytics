@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import debounce from 'lodash/debounce';
 import { Grid, Input, Header, Button } from 'semantic-ui-react';
 import RepositoryTable from './RepositoryTable';
+import LastUsed from './LastUsed';
 import { getSelectedRepositories } from '../../../store/selectors/repository';
 import { fetchRepositories } from '../../../store/actions/repository';
 
@@ -33,6 +34,9 @@ class Repositories extends Component {
                             onChange={(e, data) => this.debouncedSearch(data.value)}
                         />
                     </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                    <Grid.Column><LastUsed /></Grid.Column>
                 </Grid.Row>
 
                 <Grid.Row>
